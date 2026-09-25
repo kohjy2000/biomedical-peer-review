@@ -1,4 +1,4 @@
 interface:
   display_name: "Biomedical Peer Review"
-  short_description: "Claim-focused biomedical manuscript review workflow"
-  default_prompt: "Use $biomedical-peer-review to evaluate this biomedical manuscript and draft a calibrated peer review."
+  short_description: "Claim-focused review with an evidence dossier"
+  default_prompt: "Use $biomedical-peer-review to evaluate this biomedical manuscript and produce a calibrated peer review with its review dossier."

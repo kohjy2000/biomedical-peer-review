@@ -1,6 +1,6 @@
 # Peer Review Templates
 
-Use [review-state-template.md](review-state-template.md) for the working claim map and issue ledger. This file converts the completed S3 synthesis into reviewer-facing prose. Apply [style-profile.md](style-profile.md) when drafting.
+Use [review-dossier-template.md](review-dossier-template.md) for the working claim map, literature record, and issue ledger. This file converts the completed S3 synthesis into reviewer-facing prose. Apply [style-profile.md](style-profile.md) when drafting. The dossier remains a separate confidential artifact; do not paste its internal identifiers or full analytical record into the author-facing report.
 
 ## Pre-draft synthesis check
 

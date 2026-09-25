@@ -2,7 +2,7 @@
 
 Revision review is not a new initial review. Judge whether the authors resolved the previously identified claim-critical issues and whether the revision introduced new contradictions.
 
-Read the existing review state first when available. Use [review-state-template.md](review-state-template.md) to preserve resolution status and [review-framework.md](review-framework.md) to reassess only new or materially changed claim branches.
+Read the existing review dossier first when available. Use [review-dossier-template.md](review-dossier-template.md) to preserve resolution status, prior claim judgments, and literature grounding, and use [review-framework.md](review-framework.md) to reassess only new or materially changed claim branches.
 
 ## Required inputs
 
@@ -41,12 +41,14 @@ Do not accept the response letter as proof that the manuscript changed. Verify t
 - Check whether new data created denominator, sample-count, label, legend, or methods/results inconsistencies.
 - Avoid expanding the review to unrelated new demands unless the revision created a consequential new problem.
 - Do not rebuild unaffected claim branches or repeat a broad literature search without a material reason.
-- Update the state ledger after resolving each prior issue and before drafting the next-round report.
+- Update the dossier's resolution ledger after resolving each prior issue and before drafting the next-round report.
 - If the remaining issues are wording, internal consistency, or statistical clarification, classify them accordingly rather than preserving the prior severity by inertia.
 
 ## Revision review template
 
 After drafting either revision-review template, apply S5 in [workflow.md](workflow.md) before delivery. Use the resolution ledger as the S3-equivalent input and read [final-pruning.md](final-pruning.md) only for that final pass.
+
+Deliver the revised `peer-review.md` together with the updated `review-dossier.md`. Preserve resolved issues and the evidence for their resolution in the dossier even when they are omitted from the author-facing report.
 
 ```markdown
 Overall Assessment

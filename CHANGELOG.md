@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented here.
 
+## [0.2.0-beta] - 2026-09-24
+
+### Added
+
+- A persistent `review-dossier.md` as the second default artifact for full initial and revision reviews.
+- Structured retention of journal and genre calibration, claim–evidence maps, literature grounding, issue traceability, verification, and decision rationale.
+- Explicit provenance labels for journal-stated requirements, field standards, and reviewer calibration.
+
+### Changed
+
+- Replaced the transient review-state template with a combined review-dossier and session-state template.
+- Final pruning now compresses only the reviewer-facing report while preserving the analytical dossier.
+- Revision reviews update the existing dossier and retain the evidence for resolved issues.
+
 ## [0.1.1-beta] - 2026-09-24
 
 ### Changed

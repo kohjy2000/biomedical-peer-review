@@ -9,7 +9,7 @@ Use this reference only after S4 has produced a complete, source-verified author
 - the journal's required fields;
 - the voice and length guidance in [style-profile.md](style-profile.md).
 
-For a new session, read the saved review-state ledger and draft first. Re-open the manuscript only when pruning could change a factual statement, scientific judgment, evidence bar, or recommendation premise.
+For a new session, read the saved review dossier and draft first. Re-open the manuscript only when pruning could change a factual statement, scientific judgment, evidence bar, or recommendation premise.
 
 ## Action audit
 
@@ -41,6 +41,8 @@ Then compress the surrounding prose:
 - preserve one or two discriminating examples when they materially clarify an adequate response;
 - follow the normal length and comment-count ranges in [style-profile.md](style-profile.md), without merging independent critical issues to meet them.
 
+Prune only the reviewer-facing report. Preserve the dossier's claim map, literature grounding, resolved issues, and verification record, then update its final action dispositions and recommendation rationale.
+
 ## Return rule
 
 If this pass reveals an untraced scientific issue, an invalid alternative, or a changed recommendation premise, return to the earliest affected stage, update the ledger, and redraft. Do not resolve a scientific disagreement by wording alone.
@@ -55,4 +57,5 @@ Deliver only when:
 - every stated alternative resolves the same inference as the direct route;
 - duplicated requests and non-essential background are removed;
 - the final recommendation still follows from the surviving issues;
+- the dossier's final action dispositions and recommendation rationale are updated;
 - the final report remains within the style target unless distinct critical issues justify additional length.

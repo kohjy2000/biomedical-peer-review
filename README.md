@@ -2,7 +2,7 @@
 
 A claim-focused workflow for reviewing immunology and biomedical manuscripts with Codex, Claude Code, and other Agent Skills-compatible environments.
 
-The skill reconstructs a manuscript as a hierarchical claim-evidence map, evaluates evidence robustness and logical connections, positions each important claim against the literature, calibrates the evidence bar to the study type and journal, and produces an actionable reviewer report. It supports initial submissions, revised manuscripts, audits of existing review drafts, and long-session handoffs.
+The skill reconstructs a manuscript as a hierarchical claim-evidence map, evaluates evidence robustness and logical connections, positions each important claim against the literature, calibrates the evidence bar to the study type and journal, and produces both an actionable reviewer report and an auditable review dossier. It supports initial submissions, revised manuscripts, audits of existing review drafts, and long-session handoffs.
 
 ## What it is designed to evaluate
 
@@ -35,7 +35,7 @@ biomedical-peer-review/
 └── references/
     ├── workflow.md
     ├── review-framework.md
-    ├── review-state-template.md
+    ├── review-dossier-template.md
     ├── review-template.md
     ├── style-profile.md
     ├── revision-review.md
@@ -83,23 +83,25 @@ Both platforms can also select the skill automatically when the request matches 
 ## Example request
 
 ```text
-Use the biomedical-peer-review skill to perform an independent initial peer review of the attached manuscript and its directly associated supplements. Build the claim-evidence map before drafting. Verify literature claims and citations, separate validity-critical from venue-critical issues, and complete the final-pruning stage before delivering the review. Do not use prior reviews, response letters, later revisions, or the published version unless I explicitly provide them as part of the review task.
+Use the biomedical-peer-review skill to perform an independent initial peer review of the attached manuscript and its directly associated supplements. Build the claim-evidence map before drafting. Verify literature claims and citations, separate validity-critical from venue-critical issues, and complete the final-pruning stage. Save the concise reviewer-facing report as peer-review.md and the structured analytical record as review-dossier.md. Do not use prior reviews, response letters, later revisions, or the published version unless I explicitly provide them as part of the review task.
 ```
 
 For a revision, provide the prior reviewer report, point-by-point response, revised manuscript, updated figures or supplements, and editor instructions when available.
 
 ## Expected output
 
-Unless the journal requires a different format, the skill produces:
+For a full initial or revision review, the skill produces two artifacts:
 
-1. Overall Assessment
-2. Major Comments
-3. Recommended Revisions, when useful
-4. Minor Comments
-5. Recommendation, when requested
-6. Confidential Comment to Editor, when useful
+1. **`peer-review.md`** — the concise author- and editor-facing report. Unless the journal requires a different format, it contains Overall Assessment, Major Comments, Recommended Revisions when useful, Minor Comments, Recommendation when requested, and Confidential Comment to Editor when useful.
+2. **`review-dossier.md`** — the confidential analytical record. It retains:
+   - target-journal and article-type calibration, with each requirement labeled as journal-stated, field standard, or reviewer calibration;
+   - the hierarchical H/M/E claim–evidence map;
+   - claim-level evidence verdicts, logical gaps, alternatives, and generalization limits;
+   - literature consensus, conflicting evidence, controversy, experimental precedent, novelty, and a verified source register;
+   - the issue/action ledger and its connection to the final Major Comments;
+   - factual verification, recommendation rationale, and revision-resolution history.
 
-The internal claim map and issue ledger are working artifacts and are not included in the reviewer-facing report unless they improve clarity or the user requests them.
+The dossier preserves structured judgments and supporting propositions, not private chain-of-thought or a raw search log. A bounded claim, literature, or draft audit returns only the relevant dossier sections.
 
 ## Tool and model considerations
 
@@ -122,6 +124,8 @@ These are quality recommendations rather than technical requirements. All AI-gen
 ## Confidentiality
 
 Peer-review materials may be confidential. Use this skill only in environments permitted by the journal, institution, and applicable agreements.
+
+Treat `review-dossier.md` as confidential working material. It may contain more manuscript-specific detail than the submitted report and should not be sent to authors or editors unless explicitly intended.
 
 Do not post unpublished manuscripts, manuscript excerpts, reviewer identities, response letters, submission identifiers, or other confidential material in GitHub Issues, Discussions, pull requests, or public test cases. Use public papers, preprints, synthetic examples, or de-identified behavioral descriptions when reporting problems.
 

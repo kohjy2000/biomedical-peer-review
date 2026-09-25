@@ -24,7 +24,7 @@ Include, when possible:
 - whether the problem concerns scientific judgment, workflow adherence, literature verification, prioritization, or writing;
 - a minimal public or synthetic reproduction case.
 
-High-value reports include missed critical claims, non-discriminating evidence treated as direct, unsupported controversy, excessive experimental requests, invalid fallback routes, incorrect recommendation severity, and failures during final pruning.
+High-value reports include missed critical claims, non-discriminating evidence treated as direct, unsupported controversy, excessive experimental requests, invalid fallback routes, incorrect recommendation severity, loss of dossier traceability, and failures during final pruning.
 
 ## Pull requests
 

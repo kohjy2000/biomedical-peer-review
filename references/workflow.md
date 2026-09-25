@@ -1,15 +1,16 @@
 # Peer Review Workflow
 
-Use this file as the execution sequence and [review-framework.md](review-framework.md) as the scientific judgment standard. For a long review, context-compaction risk, or session handoff, maintain the compact ledger defined in [review-state-template.md](review-state-template.md).
+Use this file as the execution sequence and [review-framework.md](review-framework.md) as the scientific judgment standard. For every full initial or revision review, maintain the structured dossier defined in [review-dossier-template.md](review-dossier-template.md). The dossier is both the stage ledger and the retained analytical artifact.
 
 ## Entry rules
 
-- A full initial review starts at S0 and proceeds through S5.
-- A bounded task starts at the earliest stage needed for that task.
-- If a reliable review-state ledger exists, read it first and do not repeat completed stages unless the manuscript, evidence, or journal context changed.
+- A full initial review starts at S0, instantiates `review-dossier.md`, and proceeds through S5.
+- A bounded task starts at the earliest stage needed for that task and records only the relevant dossier sections.
+- If a reliable review dossier exists, read it first and do not repeat completed stages unless the manuscript, evidence, or journal context changed.
 - Keep the identifiers H# (high-level claim), M#.# (mid-level claim), E#.#a (evidence unit), and I# (review issue) stable.
-- At the end of each completed stage, update the ledger with the completed stage, open verification flags, and one next bounded action.
+- At the end of each completed stage, update the dossier with the stage output, open verification flags, and one next bounded action.
 - Do not advance past a gate merely to begin drafting. If a required input is missing, mark the affected item Not assessable and continue only with independent work.
+- Record concise, auditable judgments and their supporting sources. Do not record private chain-of-thought or an unfiltered search history.
 
 ## S0. Frame
 
@@ -22,13 +23,15 @@ Establish the scientific and editorial context using [review-framework.md](revie
 - design, data types, population, model, and setting;
 - primary claim ambition and intended scope;
 - journal scope and expected level of contribution;
+- journal review fields and recommendation options, when provided;
+- review requirements or evidence expectations relevant to the study, labeled as Journal-stated / Field standard / Reviewer calibration and linked to their basis;
 - claim-validity bar;
 - venue-completeness bar;
-- submission stage, editor question, and review fields, when provided.
+- submission stage and editor question, when provided.
 
 ### Gate
 
-Proceed when the study type, claim ambition, and both evidence bars are explicit enough to calibrate the review. Do not infer undisclosed data, samples, resources, or experimental availability.
+Proceed when the study type, claim ambition, and both evidence bars are explicit enough to calibrate the review, and when each consequential journal or genre expectation is either grounded or explicitly labeled as reviewer calibration. Do not infer undisclosed data, samples, resources, or experimental availability.
 
 ## S1. Map
 
@@ -67,6 +70,8 @@ Evaluate evidence robustness, logical coherence, literature position, controvers
 - when a new experiment may be needed, directly relevant experimental precedent, the inference it can resolve, and its main confounder or limitation;
 - limits of generalization.
 
+For every literature source that materially changes a claim verdict, evidence standard, experimental request, novelty judgment, or recommendation, record its full citation or stable identifier, source role, exact proposition supported, affected H/M claim, and verification status in the dossier. Do not retain an undigested search-result list.
+
 Roll these judgments up to each H#, identifying the strongest evidence, weakest bridge, defensible conclusion, and remaining overclaim.
 
 ### Gate
@@ -102,7 +107,7 @@ Before drafting, consolidate issues only when they share the same scientific con
 
 ## S4. Draft and verify
 
-Use [review-template.md](review-template.md) for report structure and [style-profile.md](style-profile.md) for voice. Convert the issue ledger into author-facing prose; do not expose internal identifiers unless they improve clarity.
+Use [review-template.md](review-template.md) for report structure and [style-profile.md](style-profile.md) for voice. Convert the issue ledger into `peer-review.md`; do not expose internal identifiers unless they improve clarity. Preserve the claim map, literature grounding, and full issue traceability in `review-dossier.md`.
 
 Order Major Comments by the central bottleneck, logical dependency, and consequence rather than manuscript order. Each should contain one central problem, its consequence, the minimum required action, and, only when useful, an alternative evidentiary route or claim-calibration fallback.
 
@@ -125,22 +130,22 @@ Before delivery, re-open the source material and verify:
 
 ### Gate
 
-Proceed to S5 only when verification flags are resolved or explicitly disclosed and every Major Comment and recommendation premise is traceable to the ledger and source material. Do not deliver the draft before S5.
+Record verification outcomes and unresolved questions in the dossier. Proceed to S5 only when verification flags are resolved or explicitly disclosed and every Major Comment and recommendation premise is traceable to the dossier and source material. Do not deliver the draft before S5.
 
 ## S5. Final prune
 
 After a complete, source-verified draft exists, read [final-pruning.md](final-pruning.md). Use the S3 issue ledger and S4 draft as the primary inputs. Re-open source material only when a proposed edit could change a factual statement, scientific judgment, evidence bar, or recommendation premise.
 
-This is an editorial decision pass, not a new appraisal. Classify every requested author action, retain the minimum evidentiary route required for each Major Comment, move non-decisive strengthening to Recommended Revisions when the journal permits or omit it, test whether proposed alternatives resolve the same inference, remove duplication, and compress the prose without changing the supported scientific judgment.
+This is an editorial decision pass on `peer-review.md`, not a new appraisal. Classify every requested author action, retain the minimum evidentiary route required for each Major Comment, move non-decisive strengthening to Recommended Revisions when the journal permits or omit it, test whether proposed alternatives resolve the same inference, remove duplication, and compress the prose without changing the supported scientific judgment. Preserve the analytical detail in the dossier and update its final action dispositions and recommendation rationale.
 
 ### Gate
 
-Deliver only when the checks in [final-pruning.md](final-pruning.md) pass, the final structure follows the journal fields, and any scientific issue discovered during pruning has been returned to the appropriate earlier stage rather than silently edited around.
+Deliver `peer-review.md` and `review-dossier.md` only when the checks in [final-pruning.md](final-pruning.md) pass, the author-facing structure follows the journal fields, the dossier reflects the final judgment, and any scientific issue discovered during pruning has been returned to the appropriate earlier stage rather than silently edited around.
 
 ## Bounded-task entry points
 
-- **Claim audit:** complete S0–S2 for the claims in scope.
-- **Literature or novelty audit:** establish the relevant H/M proposition, then complete the literature portion of S2.
-- **Review drafting:** begin at S4 only when a reliable S3 issue ledger exists, then complete S5 before delivery; otherwise return to the earliest missing stage.
+- **Claim audit:** complete S0–S2 for the claims in scope and return those dossier sections.
+- **Literature or novelty audit:** establish the relevant H/M proposition, complete the literature portion of S2, and return the literature-grounding section and source register.
+- **Review drafting:** begin at S4 only when a reliable S3 issue ledger exists in the dossier, then complete S5 before delivery; otherwise return to the earliest missing stage.
 - **Revision review:** use [revision-review.md](revision-review.md), then re-enter S1–S3 only for new or materially changed claim branches.
-- **Draft audit:** inspect the draft against S3 traceability and the S4 verification gate, then apply S5.
+- **Draft audit:** inspect the draft against S3 traceability and the S4 verification gate, apply S5, and return the updated issue and verification sections with the revised report.
