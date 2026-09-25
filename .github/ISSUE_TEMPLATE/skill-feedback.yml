@@ -1,0 +1,95 @@
+name: Skill feedback
+description: Report a reproducible workflow or review-quality issue without sharing confidential material.
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload or quote unpublished manuscripts, response letters, reviewer identities, submission identifiers, or other confidential peer-review material. Use public papers, preprints, synthetic examples, or de-identified descriptions.
+
+  - type: checkboxes
+    id: confidentiality
+    attributes:
+      label: Confidentiality confirmation
+      options:
+        - label: This report contains no unpublished or journal-confidential material.
+          required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Codex
+        - Claude Code
+        - OpenAI API
+        - Anthropic API
+        - Other Agent Skills-compatible environment
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: Model and reasoning setting
+      placeholder: "Example: model name, reasoning level"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Review mode
+      options:
+        - Initial review
+        - Revision review
+        - Claim audit
+        - Literature or novelty audit
+        - Existing review draft audit
+        - Session resume or handoff
+    validations:
+      required: true
+
+  - type: input
+    id: genre
+    attributes:
+      label: Manuscript genre and venue context
+      placeholder: "Example: mechanistic immunology study; selective general journal"
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: Describe the behavior without quoting confidential source material.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Public or synthetic reproduction case
+      description: Provide a DOI, public URL, or synthetic prompt when possible.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary category
+      options:
+        - Claim extraction or mapping
+        - Evidence robustness
+        - Logical coherence
+        - Literature, novelty, or controversy
+        - Experimental request
+        - Severity or recommendation
+        - Final pruning or length
+        - Workflow adherence
+        - Other
+    validations:
+      required: true
