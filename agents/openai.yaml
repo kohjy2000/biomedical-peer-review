@@ -1,4 +1,4 @@
 interface:
-  display_name: "JYK Biomedical Peer Review"
+  display_name: "Biomedical Peer Review"
   short_description: "Claim-focused biomedical manuscript review workflow"
-  default_prompt: "Use $jyk-peer-review to evaluate this biomedical manuscript and draft a calibrated peer review."
+  default_prompt: "Use $biomedical-peer-review to evaluate this biomedical manuscript and draft a calibrated peer review."

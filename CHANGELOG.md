@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented here.
 
+## [0.1.1-beta] - 2026-09-24
+
+### Changed
+
+- Renamed the project and skill to `biomedical-peer-review`.
+- Removed personal naming from the reviewer-facing title and style profile.
+- Documented the tested GPT-5.6 Sol/high baseline and the provisional Claude Opus/high starting point for full scientific appraisal.
+
 ## [0.1.0-beta] - 2026-09-24
 
 ### Added

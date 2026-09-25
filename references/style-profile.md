@@ -1,4 +1,4 @@
-# JYK Review Style Profile
+# Review Style Profile
 
 This profile defines the default reviewer-facing voice and presentation. It is subordinate to the scientific workflow, the manuscript evidence, the journal's required fields, and explicit user instructions.
 

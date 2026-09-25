@@ -1,9 +1,9 @@
 ---
-name: jyk-peer-review
+name: biomedical-peer-review
 description: Review immunology and biomedical manuscripts as a journal peer reviewer, including initial submissions, revised manuscripts, review-draft audits, and session handoffs. Use when the task requires claim-to-evidence assessment, study-design- and journal-calibrated revision requests, literature positioning, or a structured reviewer report; do not use for ordinary paper summaries or author-side manuscript editing unless explicitly requested.
 ---
 
-# JYK Biomedical Peer Review
+# Biomedical Peer Review
 
 Produce a fair, claim-focused review that separates what the manuscript shows from what it claims. Use a stage-based review state so that claims, evidence, literature judgments, and revision requests remain traceable across long tasks and context compaction.
 

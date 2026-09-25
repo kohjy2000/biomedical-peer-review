@@ -1,4 +1,4 @@
-# JYK Biomedical Peer Review Skill
+# Biomedical Peer Review Skill
 
 A claim-focused workflow for reviewing immunology and biomedical manuscripts with Codex, Claude Code, and other Agent Skills-compatible environments.
 
@@ -28,7 +28,7 @@ The workflow uses six stages:
 ## Repository structure
 
 ```text
-jyk-peer-review/
+biomedical-peer-review/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
@@ -49,13 +49,13 @@ jyk-peer-review/
 ### Codex
 
 ```bash
-git clone https://github.com/kohjy2000/jyk-peer-review.git ~/.codex/skills/jyk-peer-review
+git clone https://github.com/kohjy2000/biomedical-peer-review.git ~/.codex/skills/biomedical-peer-review
 ```
 
 Invoke explicitly with:
 
 ```text
-$jyk-peer-review
+$biomedical-peer-review
 ```
 
 ### Claude Code
@@ -63,19 +63,19 @@ $jyk-peer-review
 Install globally for the current user:
 
 ```bash
-git clone https://github.com/kohjy2000/jyk-peer-review.git ~/.claude/skills/jyk-peer-review
+git clone https://github.com/kohjy2000/biomedical-peer-review.git ~/.claude/skills/biomedical-peer-review
 ```
 
 Or install it in one project:
 
 ```bash
-git submodule add https://github.com/kohjy2000/jyk-peer-review.git .claude/skills/jyk-peer-review
+git submodule add https://github.com/kohjy2000/biomedical-peer-review.git .claude/skills/biomedical-peer-review
 ```
 
 Invoke explicitly with:
 
 ```text
-/jyk-peer-review
+/biomedical-peer-review
 ```
 
 Both platforms can also select the skill automatically when the request matches its description.
@@ -83,7 +83,7 @@ Both platforms can also select the skill automatically when the request matches 
 ## Example request
 
 ```text
-Use the jyk-peer-review skill to perform an independent initial peer review of the attached manuscript and its directly associated supplements. Build the claim-evidence map before drafting. Verify literature claims and citations, separate validity-critical from venue-critical issues, and complete the final-pruning stage before delivering the review. Do not use prior reviews, response letters, later revisions, or the published version unless I explicitly provide them as part of the review task.
+Use the biomedical-peer-review skill to perform an independent initial peer review of the attached manuscript and its directly associated supplements. Build the claim-evidence map before drafting. Verify literature claims and citations, separate validity-critical from venue-critical issues, and complete the final-pruning stage before delivering the review. Do not use prior reviews, response letters, later revisions, or the published version unless I explicitly provide them as part of the review task.
 ```
 
 For a revision, provide the prior reviewer report, point-by-point response, revised manuscript, updated figures or supplements, and editor instructions when available.
@@ -104,6 +104,16 @@ The internal claim map and issue ledger are working artifacts and are not includ
 ## Tool and model considerations
 
 The skill is instruction-based and does not bundle a PDF parser, literature database, or browser. Review quality therefore depends on the model and the document, search, and citation-verification capabilities available in the host environment.
+
+### Recommended model settings
+
+A full S0–S4 manuscript appraisal requires sustained scientific, methodological, and literature-grounded reasoning.
+
+- **Tested baseline:** GPT-5.6 Sol with high reasoning effort or above.
+- **Claude Code starting point:** a current Opus model with high effort or above. This is a recommended configuration and has not yet been established as an equivalent validated minimum.
+- Lower-cost or lower-effort settings may be suitable for bounded tasks such as S5 final pruning, formatting, or prose revision, but have not reliably met this project's quality bar for independent full scientific appraisal.
+
+These are quality recommendations rather than technical requirements. All AI-generated peer-review judgments require expert verification.
 
 - If a source cannot be accessed or verified, the skill should mark the affected judgment as not assessable rather than infer it.
 - A named experiment should be proposed only when its discriminating value is supported by domain knowledge or directly relevant literature.
