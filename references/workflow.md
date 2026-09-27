@@ -99,15 +99,22 @@ Also record the central bottleneck, scientific-validity judgment, venue-level ad
 
 Perform a coverage sweep of methods, statistics, ethics when relevant, reproducibility, data/code access, figures, tables, terminology, and conclusions versus the data range. Promote an issue only when its consequence warrants it.
 
-For Minor Comments, check at least these classes that referees commonly raise and record which were checked:
+#### Minor sweep
 
-- figure legibility (font size, colour use, axis labels, panel density) and legend completeness;
-- terminology precision, including causal or regulatory verbs, cell-type and population names, and defined abbreviations;
-- consistency of counts, denominators, and thresholds across Abstract, Results, Methods, figures, and tables;
-- statistical reporting (test used, n per group, multiple-testing correction, effect sizes with uncertainty);
-- code, data, and summary-statistic links and repository status;
-- placement relative to the closest prior work and resources;
-- clinical or biological context statements that exceed the data.
+Target **high-value minor issues**: problems that do not change the main judgment but affect whether a reader can verify, reproduce, or correctly interpret a result. These classes are high value:
+
+- consistency of counts, denominators, thresholds, and version or cohort sizes across Abstract, Results, Methods, legends, and tables;
+- statistical reporting: test used, n per group, independence of observations, multiple-testing correction, effect sizes with uncertainty;
+- data, code, and summary-statistic availability, including whether stated links or accessions exist;
+- terminology and claim-verb precision, including the title and Abstract (causal or regulatory verbs, disease-state or infection-state terms, cell-type and population names);
+- cohort and sample description needed for interpretation: ancestry, sequencing depth, batch or site, sex, covariate definitions, inclusion and exclusion;
+- Methods detail needed to reproduce a reported analysis;
+- statements of clinical or biological context, or placement relative to the closest prior work, that exceed or misstate the evidence;
+- figure elements that prevent reading a key result (illegible labels, missing axes, undefined symbols on a panel that supports a claim).
+
+Typography, stylistic preferences, and cosmetic figure edits on panels that do not support a claim are low value; include them only when trivial to state.
+
+Record the sweep in the dossier as a table with one row per main figure, main table, and Methods section, and one column per high-value class. Each cell contains a specific finding with its location or "none found". A class marked "not checked" must give a reason. Promote a finding to a Minor Comment when it is high value; promote it further only when its consequence warrants it.
 
 ### Gate
 

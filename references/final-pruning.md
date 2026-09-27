@@ -35,6 +35,8 @@ Give explicit keep, move, or drop decisions, with a one-line reason, for any led
 
 Do not drop an issue in these classes merely to meet the length or comment-count target; merge it with the comment that shares its consequence instead.
 
+Minor Comments are outside the length target. Pruning may merge duplicate Minor Comments and remove low-value ones (typography, stylistic preference), but it must not remove a high-value Minor Comment from the Minor sweep (see workflow.md, S3) unless it is duplicated elsewhere in the report. Write each Minor Comment as one line: location, problem, requested correction.
+
 ## Prune the draft
 
 For each Major Comment:
@@ -67,6 +69,7 @@ If this pass reveals an untraced scientific issue, an invalid alternative, or a 
 Deliver only when:
 
 - every Validity-critical or Venue-critical ledger issue appears in the report or has a recorded drop reason;
+- every high-value Minor sweep finding appears as a Minor Comment or is recorded as duplicated;
 - every author action has a disposition;
 - every Major Comment contains a central defect, consequence, and minimum required route;
 - Recommended strengthening is separated or omitted;

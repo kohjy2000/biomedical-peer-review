@@ -155,6 +155,13 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 
 [Repeat as needed]
 
+### Minor Sweep
+
+| Location | Counts/thresholds | Statistics | Data/code | Terminology | Cohort/sample | Methods detail | Context/prior work | Key-panel legibility |
+|---|---|---|---|---|---|---|---|---|
+| Fig. 1 | [finding + location / none found] | | | | | | | |
+| [Repeat for each main figure, main table, and Methods section] | | | | | | | | |
+
 ### Recommendation State
 
 - Central bottleneck:

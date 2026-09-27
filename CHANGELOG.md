@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Changed (v3)
+
+- Minor Comments target high-value issues (verifiability, reproducibility, correct interpretation), defined as eight classes derived from the round-1 referee points of the pilot papers.
+- The minor sweep is recorded as a per-figure, per-table, per-Methods-section table in the dossier, with a specific finding or "none found" in every cell.
+- Minor Comments are outside the length target; pruning may not remove high-value Minor Comments.
+
+
 Changes motivated by a pilot comparison of blind skill reviews with real round-1 referee reports for three 2026 Nature papers.
 
 ### Changed

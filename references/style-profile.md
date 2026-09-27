@@ -12,7 +12,7 @@ The dominant recent structure is:
 4. Recommendation when requested;
 5. confidential editor comments when the decision needs strategic explanation.
 
-Use about 600–1,000 words as the default working range for an initial review. Exceed 1,200 words only when multiple independent validity- or venue-critical issues cannot be combined without losing their distinct consequences or remedies. Keep the Overall Assessment compact, commonly about 75–165 words. Length is not a quota: concise reviews are preferred when the decision can be supported with fewer comments.
+Use about 600–1,000 words as the default working range for an initial review, counting the Overall Assessment, Major Comments, and Recommended Revisions. Minor Comments are a compact one-line-per-item list outside this range. Exceed 1,200 words only when multiple independent validity- or venue-critical issues cannot be combined without losing their distinct consequences or remedies. Keep the Overall Assessment compact, commonly about 75–165 words. Length is not a quota: concise reviews are preferred when the decision can be supported with fewer comments.
 
 ## Voice
 
