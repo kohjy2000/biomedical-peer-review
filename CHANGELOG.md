@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented here.
 
+## [Unreleased]
+
+Changes motivated by a pilot comparison of blind skill reviews with real round-1 referee reports for three 2026 Nature papers.
+
+### Changed
+
+- Final pruning now requires every Validity- or Venue-critical ledger issue to appear in the report or carry a recorded drop reason, with explicit keep/move/drop decisions for replication, novelty-versus-prior-resources, cross-cohort comparability, and data/code availability issues.
+- Compressed quotations, claim verbs, counts, and scope statements are re-verified against the source after pruning.
+- The recommendation is derived from a remedy-profile check: Reject requires an issue that cannot realistically be resolved within revision or a calibrated claim below the journal threshold; venue-decisive severity must be justified against field norms for the study type.
+- Verification requires a documented full-text search before stating that any item is absent, and a check that figure-based statements read the panel at the correct grouping level.
+- The S3 coverage sweep includes a checklist of commonly raised Minor Comment classes.
+
 ## [0.2.0-beta] - 2026-09-24
 
 ### Added

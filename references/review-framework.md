@@ -235,4 +235,12 @@ The decisive test, valid alternative, and claim-calibration fallback are alterna
 - **Major Revision:** important validity or venue-completeness gaps are consequential but realistically revisable, and a satisfactory revision could meet the journal's criteria.
 - **Reject:** the central claim is fundamentally unsupported, the needed correction is not realistically achievable within revision, or a defensible narrower contribution would not meet the journal's scope or threshold. Recommend transfer only when that option exists.
 
+### Remedy-profile check
+
+Before choosing the recommendation, record for each Major Comment the proportionate action it requires (section 6: clarification or correction, existing-data reanalysis, robustness analysis, orthogonal validation, new experiment or sample set, or narrower claim).
+
+- If every Major Comment can be resolved by clarification, reanalysis of existing data, robustness analysis, or claim calibration, and the calibrated claim still meets the journal's threshold, do not recommend Reject; Major Revision is the default.
+- Recommend Reject only when at least one issue needs evidence that is not realistically obtainable within a revision, or when the defensible calibrated claim would fall below the journal's threshold. Name that issue and the reason in the recommendation rationale.
+- Before treating an issue as decisive for the venue, state what the field and journal normally accept for this study type (for example, descriptive efficacy comparisons and exploratory biomarkers in early-phase trials, or exploratory Mendelian randomization in a discovery genetics paper). Distinguish "valid issue" from "issue that decides the venue".
+
 Do not disguise a venue-fit judgment as a data-validity flaw. State author-actionable scientific gaps to the authors and keep strategic journal-fit reasoning in the recommendation or confidential editor comment when appropriate.

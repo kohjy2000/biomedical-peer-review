@@ -22,6 +22,19 @@ Inventory every requested author action in the draft and assign one disposition 
 
 A minimum evidentiary route may contain multiple inseparable components. Do not preserve extra analyses merely to make a comment appear comprehensive. When supporting characterization is needed only to interpret a chosen decisive test, state that dependency rather than presenting it as an independent requirement.
 
+## Coverage preservation
+
+Before pruning, compare the draft with the S3 issue ledger. Every Validity-critical or Venue-critical I# must appear in the draft or carry a recorded drop reason in the dossier.
+
+Give explicit keep, move, or drop decisions, with a one-line reason, for any ledger issue in these commonly decisive classes:
+
+- external replication or independent validation of the headline result;
+- novelty or added value relative to the closest prior datasets, resources, or studies;
+- comparability across cohorts, batches, platforms, or sites, including covariate harmonization;
+- data, code, or summary-statistic availability needed to verify the central claims.
+
+Do not drop an issue in these classes merely to meet the length or comment-count target; merge it with the comment that shares its consequence instead.
+
 ## Prune the draft
 
 For each Major Comment:
@@ -41,6 +54,8 @@ Then compress the surrounding prose:
 - preserve one or two discriminating examples when they materially clarify an adequate response;
 - follow the normal length and comment-count ranges in [style-profile.md](style-profile.md), without merging independent critical issues to meet them.
 
+After compression, re-check every quotation, claim verb, count, and scope statement that was shortened or merged against the source; compression must not broaden, narrow, or reattribute what the manuscript says.
+
 Prune only the reviewer-facing report. Preserve the dossier's claim map, literature grounding, resolved issues, and verification record, then update its final action dispositions and recommendation rationale.
 
 ## Return rule
@@ -51,11 +66,12 @@ If this pass reveals an untraced scientific issue, an invalid alternative, or a 
 
 Deliver only when:
 
+- every Validity-critical or Venue-critical ledger issue appears in the report or has a recorded drop reason;
 - every author action has a disposition;
 - every Major Comment contains a central defect, consequence, and minimum required route;
 - Recommended strengthening is separated or omitted;
 - every stated alternative resolves the same inference as the direct route;
 - duplicated requests and non-essential background are removed;
-- the final recommendation still follows from the surviving issues;
+- the final recommendation still follows from the surviving issues and their remedy profile (see review-framework.md, section 7);
 - the dossier's final action dispositions and recommendation rationale are updated;
 - the final report remains within the style target unless distinct critical issues justify additional length.

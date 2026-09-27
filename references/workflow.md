@@ -99,6 +99,16 @@ Also record the central bottleneck, scientific-validity judgment, venue-level ad
 
 Perform a coverage sweep of methods, statistics, ethics when relevant, reproducibility, data/code access, figures, tables, terminology, and conclusions versus the data range. Promote an issue only when its consequence warrants it.
 
+For Minor Comments, check at least these classes that referees commonly raise and record which were checked:
+
+- figure legibility (font size, colour use, axis labels, panel density) and legend completeness;
+- terminology precision, including causal or regulatory verbs, cell-type and population names, and defined abbreviations;
+- consistency of counts, denominators, and thresholds across Abstract, Results, Methods, figures, and tables;
+- statistical reporting (test used, n per group, multiple-testing correction, effect sizes with uncertainty);
+- code, data, and summary-statistic links and repository status;
+- placement relative to the closest prior work and resources;
+- clinical or biological context statements that exceed the data.
+
 ### Gate
 
 Proceed when every proposed Major Comment maps to an H/M/E identifier or exact manuscript location and has a stated consequence and action. A Major Comment must be validity-critical or venue-critical. Separate the minimum evidence needed to resolve the inference from supporting characterization; do not present the latter as an additional required experiment unless it is necessary to interpret the decisive evidence. A named experiment must test the affected claim rather than merely add characterization. An alternative route is acceptable only when it resolves the scientific issue and preserves a contribution appropriate for the current journal.
@@ -117,7 +127,8 @@ Before delivery, re-open the source material and verify:
 - sample sizes, denominators, percentages, and statistical statements;
 - figure, table, panel, section, and page references;
 - consistency among Abstract, Results, Methods, legends, tables, and any response letter;
-- whether a requested analysis or experiment already exists;
+- whether a requested analysis or experiment already exists. Before stating that any item, analysis, covariate, figure, table, or threshold is absent, missing, or not reported, search the full text, Methods, legends, tables, figure panels, and any supplementary index, and record in the dossier where you looked. If supplementary material is unavailable, write "not found in the available material" rather than "absent";
+- whether each figure-based statement reads the panel at the grouping level, axis, and comparison the figure actually shows;
 - whether OCR or extraction artifacts created a false discrepancy;
 - the exact proposition supported by every cited paper;
 - whether a diagnostic criterion, assay standard, or field-standard assertion driving a Major Comment is anchored to an authoritative source or explicitly qualified as uncertain;
