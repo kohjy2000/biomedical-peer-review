@@ -16,7 +16,7 @@ Run `./fetch_inputs.sh <workdir>` to download the preprint v1 text/figures and t
 
 ## Procedure
 
-1. **Blind review** (per case, one agent): follow `SKILL.md` S0–S5 on the preprint v1 only, reviewing for Nature as of the Received date; literature published before that date only; no access to later versions, the published article, the Peer Review File, news, or other case folders; publisher and preprint domains excluded from web search (v2 runs). Outputs: `peer-review.md`, `review-dossier.md`, `run-notes.md`.
+1. **Blind review** (per case, one agent): follow `SKILL.md` S0–S5 on the preprint v1 only, reviewing for Nature as of the Received date; literature published before that date only; no access to later versions, the published article, the Peer Review File, news, or other case folders; publisher and preprint domains excluded from web search (v2 runs) via the search tool's `blocked_domains` parameter; the `-site:` query operator was ignored by the tool and must not be relied on. Outputs: `peer-review.md`, `review-dossier.md`, `run-notes.md`.
 2. **Reference ledger** (separate agent, reference folder only): every round-1 referee point with the referee's label, our Major/Minor category, topic, paraphrase, and author response outcome → `human_points.md`.
 3. **Adjudication** (separate agent per case, may open the published article):
    - Coverage: each ledger point Matched / Partial / Missed; recall = (Matched + 0.5 × Partial) / total, Major and Minor separately; round-1 points only; primary metric uses our category; rebuttal-only answers still count as substantive.

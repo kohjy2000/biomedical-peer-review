@@ -10,6 +10,7 @@ Produce a fair, claim-focused review that separates what the manuscript shows fr
 ## Select the mode
 
 - **Initial review:** read [references/workflow.md](references/workflow.md), instantiate [references/review-dossier-template.md](references/review-dossier-template.md), and follow the S0–S5 sequence. Use [references/review-framework.md](references/review-framework.md) for scientific judgment.
+- **Panel review:** after S0–S1, read [references/panel-review.md](references/panel-review.md) and run three independent reviewer roles (domain, method, significance) followed by an editor synthesis. Use when requested, or for high-impact venues when the budget allows.
 - **Revision review (R1/R2):** read [references/revision-review.md](references/revision-review.md) and the existing dossier when available. Re-enter the workflow only for new or materially changed claim branches, then apply S5 to the completed revision-review draft.
 - **Audit an existing review draft:** use S3–S5 of [references/workflow.md](references/workflow.md), record the relevant dossier sections, and apply [references/style-profile.md](references/style-profile.md).
 - **Resume or hand off a long review:** read or instantiate [references/review-dossier-template.md](references/review-dossier-template.md), then continue from the earliest incomplete stage.
