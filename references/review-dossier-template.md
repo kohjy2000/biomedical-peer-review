@@ -134,6 +134,8 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 - Defensible conclusion:
 - Remaining overclaim:
 - Literature position and novelty:
+- External replication (present? needed at this venue? basis):
+- Cross-cohort/batch/platform comparability (if applicable):
 
 ## S3 — Issue and Action Ledger
 
@@ -157,10 +159,15 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 
 ### Minor Sweep
 
-| Location | Counts/thresholds | Statistics | Data/code | Terminology | Cohort/sample | Methods detail | Context/prior work | Key-panel legibility |
-|---|---|---|---|---|---|---|---|---|
-| Fig. 1 | [finding + location / none found] | | | | | | | |
-| [Repeat for each main figure, main table, and Methods section] | | | | | | | | |
+Findings only; items that support a headline or consequential mid-level claim.
+
+- [Location] — [class] — [problem]
+
+Not checked: [item, class, reason], if any.
+
+#### Terminology read (title, Abstract, Results subheadings)
+
+- [Location] — "[exact wording]" — [problem]
 
 ### Recommendation State
 

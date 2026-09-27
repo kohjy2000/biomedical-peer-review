@@ -26,7 +26,7 @@ A minimum evidentiary route may contain multiple inseparable components. Do not 
 
 Before pruning, compare the draft with the S3 issue ledger. Every Validity-critical or Venue-critical I# must appear in the draft or carry a recorded drop reason in the dossier.
 
-Give explicit keep, move, or drop decisions, with a one-line reason, for any ledger issue in these commonly decisive classes:
+Give explicit keep, move, or drop decisions, with a one-line reason, for any ledger issue in these commonly decisive classes. The first three are judged in S2 (workflow.md, High-level roll-up); a drop that contradicts the S2 judgment must say why the S2 judgment was wrong:
 
 - external replication or independent validation of the headline result;
 - novelty or added value relative to the closest prior datasets, resources, or studies;

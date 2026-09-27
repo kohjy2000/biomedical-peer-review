@@ -1,6 +1,6 @@
 # Panel Review
 
-Use this mode when the user requests a panel review, or for a full initial review at a high-impact venue when the budget allows. It simulates how an editor assembles complementary referees, so that biological interpretation, method, and significance are each examined by a reviewer whose priorities differ.
+Use this mode only when the user explicitly requests a panel review. It is experimental and has not been benchmarked against single-reviewer mode; do not select it on your own. It simulates how an editor assembles complementary referees, so that biological interpretation, method, and significance are each examined by a reviewer whose priorities differ.
 
 ## P0. Assign the panel (editor role)
 

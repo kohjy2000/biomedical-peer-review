@@ -74,6 +74,14 @@ For every literature source that materially changes a claim verdict, evidence st
 
 Roll these judgments up to each H#, identifying the strongest evidence, weakest bridge, defensible conclusion, and remaining overclaim.
 
+For each H#, also record an explicit judgment, with its basis, on:
+
+- external replication or independent validation: is it present, and is it needed for the claim at this venue?
+- novelty or added value relative to the closest prior datasets, resources, or studies;
+- comparability across cohorts, batches, platforms, or sites, when the claim pools or contrasts them.
+
+These judgments are made here, not at pruning. S5 may compress or merge them but must not reverse them without recording why.
+
 ### Gate
 
 Proceed when every headline claim and every mid-level claim necessary to assemble it has a traceable verdict or an explicit Not assessable flag. Do not treat literature agreement as validation, manufacture controversy, or treat evidence as direct when its comparison varies a correlated state, selection process, time point, or population rather than the attribute named in the claim. Do not claim that a model is distinguished when the data remain compatible with alternatives. Do not carry a specific new experiment into S3 unless its discriminating value is supported by field knowledge or directly relevant literature; otherwise record only the evidence type needed.
@@ -114,7 +122,11 @@ Target **high-value minor issues**: problems that do not change the main judgmen
 
 Typography, stylistic preferences, and cosmetic figure edits on panels that do not support a claim are low value; include them only when trivial to state.
 
-Record the sweep in the dossier as a table with one row per main figure, main table, and Methods section, and one column per high-value class. Each cell contains a specific finding with its location or "none found". A class marked "not checked" must give a reason. Promote a finding to a Minor Comment when it is high value; promote it further only when its consequence warrants it.
+Apply the classes to each main figure, main table, and Methods section that supports a headline or consequential mid-level claim. Record only findings, as a list in the dossier: location, class, problem. Do not record "none found" entries. If a class could not be checked for a supporting item (for example, missing supplementary files), state that once with the reason.
+
+Separately, read the title, the Abstract, and every Results subheading line by line for terminology and claim-verb precision, and record each finding with its exact wording.
+
+Promote a finding to a Minor Comment when it is high value; promote it further only when its consequence warrants it.
 
 ### Gate
 
