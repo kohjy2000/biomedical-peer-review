@@ -58,7 +58,7 @@ Then compress the surrounding prose:
 
 After compression, re-check every quotation, claim verb, count, and scope statement that was shortened or merged against the source; compression must not broaden, narrow, or reattribute what the manuscript says.
 
-Prune only the reviewer-facing report. Preserve the dossier's claim map, literature grounding, resolved issues, and verification record, then update its final action dispositions and recommendation rationale.
+Prune only the reviewer-facing report. Preserve the dossier's claim map, field knowledge, resolved issues, and verification record, then update its final action dispositions and recommendation rationale.
 
 ## Return rule
 

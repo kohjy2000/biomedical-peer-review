@@ -9,7 +9,7 @@ Update it at stage boundaries rather than recording a running monologue. Preserv
 - Status and source set
 - S0 review calibration
 - S1 structured claim–evidence map
-- S2 claim appraisal, literature grounding, and source register
+- S2a field knowledge and source register; S2b claim appraisal
 - S3 issue and action ledger
 - Revision resolution ledger
 - S4 draft verification
@@ -84,37 +84,13 @@ Update it at stage boundaries rather than recording a running monologue. Preserv
 
 [Repeat H claims as needed]
 
-## S2 — Claim Appraisal
+## S2a — Field Knowledge
 
-### M1.1
+Search targets (from S1):
 
-- Evidence verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable
-- Claim–evidence relation: Direct / Indirect / Non-discriminating / Contradictory
-- Comparison and endpoint fit to the claim:
-- Strongest supporting evidence:
-- Material design, analysis, or uncertainty limitation:
-- Logical gap or competing explanation:
-- Scope and generalization limit:
-- Evidence that would change the verdict:
-- Verification flag:
-
-### Literature Grounding for M1.1
-
-- Exact proposition assessed:
-- Established knowledge:
-- Current consensus or governing standard:
-- Prior evidence consistent with the claim:
-- Prior evidence inconsistent with the claim:
-- Genuine controversy or competing models:
-- Possible source of disagreement:
-- Manuscript position: confirms / extends / contradicts / refines / reconciles / discriminates
-- Does the manuscript distinguish competing models?:
-- Field-standard evidence package for this claim:
-- Directly relevant experimental precedent and its main limitation:
-- Genuine contribution or novelty:
-- Literature-dependent judgment and confidence:
-
-[Repeat for consequential M claims]
+| K# | Layer | Topic | Proposition | Context of validity | Expected direction/size | Related H/M or entity | Discriminating readout | Source ID |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| K1 | Background / Specific | | | | | | | L1 |
 
 ### Literature Source Register
 
@@ -123,6 +99,24 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 | Source ID | Full citation and DOI/PMID/stable URL | Role: foundational / consensus / supporting / conflicting / benchmark / precedent / recent update | Exact proposition supported | Affected H/M/I | Verified |
 | --- | --- | --- | --- | --- | --- |
 | L1 | | | | | Yes / No |
+
+## S2b — Claim Appraisal
+
+### M1.1
+
+- Verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable; relation: Direct / Indirect / Non-discriminating / Contradictory
+- Comparison and endpoint fit to the claim:
+- Strongest evidence and main limitation:
+- Internal counter-evidence:
+- Scope and generalization limit:
+- Expected vs observed (K#); alternative explanation and discriminating request:
+- Can the system or reagent produce the claimed result? (K#):
+- Prior support, conflict, or controversy (K#); manuscript position: confirms / extends / contradicts / refines / reconciles / discriminates
+- Missing field-standard evidence; experimental precedent and its limitation (K#):
+- Evidence that would change the verdict:
+- Verification flag:
+
+[Repeat for consequential M claims, in inference-chain order]
 
 ### High-Level Roll-Up
 
@@ -136,12 +130,14 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 - Literature position and novelty:
 - External replication (present? needed at this venue? basis):
 - Cross-cohort/batch/platform comparability (if applicable):
+- Observations the model does not explain (manuscript or K#), with the alternative:
 
 ## S3 — Issue and Action Ledger
 
 ### I1 — [Validity-critical / Venue-critical / Recommended strengthening / Minor]
 
 - Affects: H# / M# / E#
+- Origin: S2b manuscript evidence / S2b field knowledge / H-level judgment / Minor sweep
 - Exact evidence or manuscript location:
 - Problem:
 - Scientific or editorial consequence:

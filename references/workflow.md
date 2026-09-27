@@ -45,7 +45,8 @@ Reconstruct the manuscript neutrally as a hierarchical claim–evidence map.
 - for each consequential E#.#a, the actual comparison, exposure, perturbation, or estimand; the unit and relevant time point; and the measured endpoint;
 - the inferential role the authors assign to that evidence, such as association, necessity, sufficiency, prediction, validation, or generalization;
 - authors' wording, verb strength, intended scope, and claimed novelty;
-- dependencies among claims, including bridge claims.
+- dependencies among claims, including bridge claims and unstated prerequisites the chain relies on (for example, a condition the proposed mechanism requires);
+- S2a search targets: the field and keywords for the background layer; the entities (cells, molecules, loci, pathogens, interventions), variables (such as age, sex, time point, species, and tissue), and design arms in the consequential claims; and the manuscript sentences whose cited references carry a claim.
 
 ### Gate
 
@@ -53,24 +54,57 @@ Proceed when every important high-level claim is connected to all necessary mid-
 
 ## S2. Appraise
 
-Evaluate evidence robustness, logical coherence, literature position, controversy, novelty, field evidence standards, experimental precedent, and scope using [review-framework.md](review-framework.md).
+Build the field knowledge first (S2a), then appraise each claim against the manuscript and that knowledge (S2b). Use [review-framework.md](review-framework.md) for scientific judgment.
 
-### Required output for each consequential M#.#
+### S2a. Field knowledge
+
+Before appraising any claim, search the literature in two layers, background first. Organize by topic, not by paper.
+
+**Background (field and keywords).** For the manuscript's field and the S1 entities and variables, look for:
+
+- operational definitions and the nearest alternative states;
+- the field's current framework: major mechanisms and models, the other half of each axis (ligand or receptor, upstream or downstream), competing mechanisms, and live debates;
+- the normal baseline: composition, frequency range, kinetics, known differences by host variables such as age, sex, time, species, or tissue, and the known roles of the cells or molecules involved (effector or regulatory; cause or consequence);
+- field-standard methods, and what the experimental system or reagents can and cannot produce.
+
+Prefer reviews, consensus statements, and landmark studies. Keep this layer within the manuscript's field and key entities.
+
+**Specific (claims).** Using the background vocabulary, search for each consequential H/M claim:
+
+- prior reports of the same or a closely related finding;
+- studies that support or contradict the claim;
+- directly relevant experimental precedent for the same inference, and external data that could replicate it;
+- whether the manuscript's key cited references support the sentences that cite them.
+
+Record one row per proposition in the field knowledge table: layer (background or specific), topic, proposition, context of validity, expected direction or size, related H/M claim (or entity, for background rows), discriminating readout, and source ID. Keep a row only when it defines a term, states an expected pattern, or bears on a claim. Record facts only; verdicts belong to S2b.
+
+Register every source in the table with its full citation or stable identifier, source role, and verification status. Do not retain an undigested search-result list.
+
+When sub-agents are available, run S2a in a sub-agent that receives S0, S1, and the search targets and returns only the table and the source register; keep all verdicts in the main review. Otherwise run S2a in the same session with the same output.
+
+### S2b. Claim appraisal
+
+Appraise each consequential M#.# in the inference-chain order of the study type ([review-framework.md](review-framework.md), section 5), or in S1 order when the type has no chain.
+
+**Manuscript evidence**
 
 - evidence verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable;
 - claim–evidence relation: Direct / Indirect / Non-discriminating / Contradictory;
-- whether the evidence's comparison and endpoint match the causal, temporal, population, or mechanistic distinction made by the claim;
-- strongest evidence and material limitation;
-- logical gap or competing explanation;
-- established knowledge and relevant consensus;
-- consistent and conflicting prior evidence;
-- genuine controversy or competing model, if present;
-- whether the manuscript confirms, extends, contradicts, refines, reconciles, or discriminates;
-- the field-standard evidence package for the exact claim, when it affects the judgment;
-- when a new experiment may be needed, directly relevant experimental precedent, the inference it can resolve, and its main confounder or limitation;
+- whether the evidence's comparison and endpoint match the causal, temporal, population, or mechanistic distinction made by the claim, and whether the choice of marker, target, or analysis is justified;
+- strongest evidence and material limitation, including whether the effect is large enough to matter functionally;
+- internal counter-evidence: the manuscript's own readouts that point the other way;
 - limits of generalization.
 
-For every literature source that materially changes a claim verdict, evidence standard, experimental request, novelty judgment, or recommendation, record its full citation or stable identifier, source role, exact proposition supported, affected H/M claim, and verification status in the dossier. Do not retain an undigested search-result list.
+**Against field knowledge** (cite table rows)
+
+- whether the central labels meet their operational definition and are distinguished from the nearest alternative state;
+- expected versus observed: where they diverge, name the alternative explanation (see the five prompts in review-framework.md, section 2) and one request that would discriminate it;
+- whether the experimental system or reagent can, in principle, produce the claimed result: walk through the protocol step by step and note where it could fail;
+- prior evidence that supports or conflicts with the claim, including genuine controversy or competing models;
+- the field-standard evidence the claim lacks and, when a new experiment may be needed, directly relevant experimental precedent and its main limitation;
+- whether the manuscript confirms, extends, contradicts, refines, reconciles, or discriminates.
+
+Before raising a point that depends on literature not yet in the table, run a targeted search and add the rows.
 
 Roll these judgments up to each H#, identifying the strongest evidence, weakest bridge, defensible conclusion, and remaining overclaim.
 
@@ -78,13 +112,15 @@ For each H#, also record an explicit judgment, with its basis, on:
 
 - external replication or independent validation: is it present, and is it needed for the claim at this venue?
 - novelty or added value relative to the closest prior datasets, resources, or studies;
-- comparability across cohorts, batches, platforms, or sites, when the claim pools or contrasts them.
+- whether the link to the disease or phenotype named in the claim is shown or only assumed;
+- comparability across cohorts, batches, platforms, or sites, when the claim pools or contrasts them;
+- observations the authors' model does not explain: results in the manuscript, including secondary ones, and established observations in the field knowledge table that the model leaves unexplained or contradicts, each with the alternative that would explain it.
 
 These judgments are made here, not at pruning. S5 may compress or merge them but must not reverse them without recording why.
 
 ### Gate
 
-Proceed when every headline claim and every mid-level claim necessary to assemble it has a traceable verdict or an explicit Not assessable flag. Do not treat literature agreement as validation, manufacture controversy, or treat evidence as direct when its comparison varies a correlated state, selection process, time point, or population rather than the attribute named in the claim. Do not claim that a model is distinguished when the data remain compatible with alternatives. Do not carry a specific new experiment into S3 unless its discriminating value is supported by field knowledge or directly relevant literature; otherwise record only the evidence type needed.
+Proceed when every headline claim and every mid-level claim necessary to assemble it has a traceable verdict or an explicit Not assessable flag, and every divergence between expected and observed, and every observation the model leaves unexplained, has an alternative explanation or a recorded reason for setting it aside. Do not treat literature agreement as validation, manufacture controversy, or treat evidence as direct when its comparison varies a correlated state, selection process, time point, or population rather than the attribute named in the claim. Do not claim that a model is distinguished when the data remain compatible with alternatives. Do not carry a specific new experiment into S3 unless its discriminating value is supported by field knowledge or directly relevant literature; otherwise record only the evidence type needed.
 
 ## S3. Synthesize
 
@@ -94,6 +130,7 @@ Convert the appraisal into an issue ledger. Assign I# to every retained issue.
 
 - classification: Validity-critical / Venue-critical / Recommended strengthening / Minor;
 - affected H#, M#.#, and E#.#a where applicable;
+- origin: the step that produced it (S2b manuscript evidence, S2b field knowledge, H-level judgment, or Minor sweep);
 - exact evidence or manuscript location;
 - problem and scientific or editorial consequence;
 - required action;
@@ -124,7 +161,9 @@ Typography, stylistic preferences, and cosmetic figure edits on panels that do n
 
 Apply the classes to each main figure, main table, and Methods section that supports a headline or consequential mid-level claim. Record only findings, as a list in the dossier: location, class, problem. Do not record "none found" entries. If a class could not be checked for a supporting item (for example, missing supplementary files), state that once with the reason.
 
-Separately, read the title, the Abstract, and every Results subheading line by line for terminology and claim-verb precision, and record each finding with its exact wording.
+Separately, read the title, the Abstract, and every Results subheading line by line for terminology and claim-verb precision, including whether key concept terms meet the field's definition (S2a background), and record each finding with its exact wording.
+
+When sub-agents are available, run the formal classes (counts and thresholds, statistical reporting, data and code availability, cohort and sample description, Methods detail, and figure elements) in a sub-agent that receives the manuscript and S1 and returns only the findings list; it may run alongside S2. Keep the terminology read and statements of context or prior work in the main review. The main review assigns every tier, and S4 re-checks any statement that something is absent.
 
 Promote a finding to a Minor Comment when it is high value; promote it further only when its consequence warrants it.
 
@@ -136,7 +175,7 @@ Before drafting, consolidate issues only when they share the same scientific con
 
 ## S4. Draft and verify
 
-Use [review-template.md](review-template.md) for report structure and [style-profile.md](style-profile.md) for voice. Convert the issue ledger into `peer-review.md`; do not expose internal identifiers unless they improve clarity. Preserve the claim map, literature grounding, and full issue traceability in `review-dossier.md`.
+Use [review-template.md](review-template.md) for report structure and [style-profile.md](style-profile.md) for voice. Convert the issue ledger into `peer-review.md`; do not expose internal identifiers unless they improve clarity. Preserve the claim map, field knowledge, and full issue traceability in `review-dossier.md`.
 
 Order Major Comments by the central bottleneck, logical dependency, and consequence rather than manuscript order. Each should contain one central problem, its consequence, the minimum required action, and, only when useful, an alternative evidentiary route or claim-calibration fallback.
 
@@ -175,7 +214,7 @@ Deliver `peer-review.md` and `review-dossier.md` only when the checks in [final-
 ## Bounded-task entry points
 
 - **Claim audit:** complete S0–S2 for the claims in scope and return those dossier sections.
-- **Literature or novelty audit:** establish the relevant H/M proposition, complete the literature portion of S2, and return the literature-grounding section and source register.
+- **Literature or novelty audit:** establish the relevant H/M proposition, complete S2a for it, and return the field knowledge table and source register.
 - **Review drafting:** begin at S4 only when a reliable S3 issue ledger exists in the dossier, then complete S5 before delivery; otherwise return to the earliest missing stage.
 - **Revision review:** use [revision-review.md](revision-review.md), then re-enter S1–S3 only for new or materially changed claim branches.
 - **Draft audit:** inspect the draft against S3 traceability and the S4 verification gate, apply S5, and return the updated issue and verification sections with the revised report.

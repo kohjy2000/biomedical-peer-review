@@ -78,7 +78,12 @@ Record the relation of each consequential evidence unit to its mid-level claim:
 
 ### Alternatives and scope
 
-- What credible alternative explanations remain?
+- What credible alternative explanations remain? Ask of each observation (prompts, not a closed list):
+  - **Measurement:** does the readout capture the claimed entity, or another population, a compositional shift, or a technical cause?
+  - **State or time:** could it be another state of the same entity, or another time point?
+  - **Cause:** could another cause or pathway produce the same result?
+  - **Direction:** could it be a consequence rather than a cause, an independent effect, or an opposite role?
+  - **Context:** could host background, co-exposure, or species or system differences explain it?
 - Does the claim stay within the sampled tissue, population, model, time frame, and assay resolution?
 - Are negative results, internal exceptions, or heterogeneous subgroups obscured by an aggregate conclusion?
 
@@ -112,7 +117,7 @@ Also check for missing bridge claims, necessary conditions treated as sufficient
 
 ## 4. Literature positioning, field standards, and experimental precedent
 
-Anchor literature assessment to a specific H or M claim rather than collecting background references.
+Build field knowledge before appraising claims, in two layers (workflow.md, S2a): background knowledge of the manuscript's field and key entities, then literature specific to each claim. Keep background within the field and entities of the claim map; do not collect general reading that defines no term and sets no expectation.
 
 Assess four distinct questions:
 
@@ -122,22 +127,15 @@ Assess four distinct questions:
 4. **Experimental precedent:** How have prior studies directly tested or discriminated the same causal or mechanistic inference, and what limitations of those designs are known?
 
 ```markdown
-Claim ID:
-- Exact proposition:
-- Established knowledge:
-- Current consensus or governing standard:
-- Prior evidence consistent with the claim:
-- Prior evidence inconsistent with the claim:
-- Genuine controversy or competing models:
-- Possible source of disagreement:
-  - species / tissue / cell state / disease stage / cohort
-  - experimental model / assay / endpoint / definition / analytical method
-- Position of the manuscript:
-  - confirms / extends / contradicts / refines / reconciles / discriminates
-- Does the evidence distinguish competing models or remain compatible with several?
-- Field-standard evidence package for this claim:
-- Directly relevant experimental precedent and its limitation:
-- Genuine contribution:
+Field knowledge row:
+- Layer: background / specific
+- Topic:
+- Proposition:
+- Context of validity: species / tissue / cell state / disease stage / cohort / model / assay / definition
+- Expected direction or size:
+- Related H/M claim (or entity, for background rows):
+- Discriminating readout:
+- Source ID and verification status:
 ```
 
 Use, as needed:
@@ -185,6 +183,16 @@ Calibrate using the study type, claim ambition, intended scope, field-standard c
 - **Case report or rare material:** prioritize accurate description, diagnostic or biological support, key outcome data, transparent limitations, and cautious generalization. Rarity modifies feasible requests but not the scope justified by the evidence.
 - **Methods or computational:** examine assumptions, baselines, parameter sensitivity, uncertainty, validation independence, leakage, circularity, reproducibility, and comparative claims. Separate computational transformation from biological interpretation or clinical utility.
 - **Review article:** assess completeness, balance, evidence hierarchy, accuracy, and treatment of controversy. For systematic reviews or meta-analyses, also assess protocol, search reproducibility, selection, risk of bias, synthesis, and reporting standards.
+
+### Inference chains
+
+S2b appraises claims in the order of the study type's inference chain:
+
+- **Mechanistic:** cause → mediator → effect → phenotype.
+- **Genetic association:** variant → gene or regulatory element → cell type or context → trait.
+- **Clinical cohort or interventional trial:** exposure or treatment → intermediate marker → outcome.
+- **Methods or computational:** input → method → output → biological interpretation.
+- **Descriptive or atlas, case report, review article:** no chain; use S1 order.
 
 ## 6. Issue tiering and proportionate action
 
