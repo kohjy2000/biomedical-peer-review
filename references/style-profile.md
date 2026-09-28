@@ -12,7 +12,7 @@ The dominant recent structure is:
 4. Recommendation when requested;
 5. confidential editor comments when the decision needs strategic explanation.
 
-Use about 600–1,000 words as the default working range for an initial review, counting the Overall Assessment, Major Comments, and Recommended Revisions. Minor Comments are a compact one-line-per-item list outside this range. Exceed 1,200 words only when multiple independent validity- or venue-critical issues cannot be combined without losing their distinct consequences or remedies. Keep the Overall Assessment compact, commonly about 75–165 words. Length is not a quota: concise reviews are preferred when the decision can be supported with fewer comments.
+Use no default word-count target for an initial review. First preserve every distinct validity- or venue-critical issue that survives the structured appraisal; then make the report no longer than needed to communicate those issues and their proportionate remedies. Minor Comments should remain a compact one-line-per-item list. Keep the Overall Assessment compact, but do not let a presentation target determine which scientific issues survive.
 
 ## Voice
 
@@ -50,7 +50,7 @@ Unless [formal test/direct evidence] is provided, use [more accurate term] rathe
 
 ## Comment granularity
 
-A strong initial review normally has 3–5 Major Comments, each consisting of a short title and one focused paragraph. Do not merge independent critical issues merely to meet that range. Use multiple bullets only when they are necessary to specify separable required analyses. Avoid placing a literature review, several optional experiments, and an editorial correction in the same comment.
+Use as many Major Comments as the validated independent issues require. Each should have a short title and one focused paragraph. Merge comments only when they share the same underlying scientific defect, consequence, and remedy; proximity in the manuscript is not enough. Use multiple bullets only when they are necessary to specify separable required analyses. Avoid placing a literature review, several optional experiments, and an editorial correction in the same comment.
 
 Keep literature rationale within a Major Comment to the one or two sentences needed to establish the relevant field standard, conflict, or novelty judgment. Move broader background out of the author-facing report unless it is necessary to justify the requested action.
 

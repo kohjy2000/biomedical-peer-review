@@ -5,12 +5,12 @@ description: Review immunology and biomedical manuscripts as a journal peer revi
 
 # Biomedical Peer Review
 
-Produce a fair, claim-focused review that separates what the manuscript shows from what it claims. Maintain a stage-based review dossier so that calibration, claims, evidence, literature judgments, and revision requests remain available after the reviewer-facing report is compressed.
+Produce a fair, scientifically useful review without narrowing the initial search for problems. In a full initial review, preserve an open discovery pass before loading the structured appraisal workflow. Use structure afterward to test, trace, verify, and communicate the concerns that were found.
 
 ## Select the mode
 
-- **Initial review:** read [references/workflow.md](references/workflow.md), instantiate [references/review-dossier-template.md](references/review-dossier-template.md), and follow the S0–S5 sequence. Use [references/review-framework.md](references/review-framework.md) for scientific judgment.
-- **Panel review:** after S0–S1, read [references/panel-review.md](references/panel-review.md) and run three independent reviewer roles (domain, method, significance) followed by an editor synthesis. Experimental and not yet benchmarked; use only when the user explicitly requests a panel review.
+- **Initial review:** first read only [references/discovery.md](references/discovery.md). Complete its open discovery and source-coverage passes and save `discovery-notes.md` before reading any other skill reference or searching the literature. Then read [references/workflow.md](references/workflow.md), instantiate [references/review-dossier-template.md](references/review-dossier-template.md), and use [references/review-framework.md](references/review-framework.md) for the structured appraisal.
+- **Panel review:** for a new manuscript, complete the same open discovery gate first; after S0–S1, read [references/panel-review.md](references/panel-review.md) and run three independent reviewer roles (domain, method, significance) followed by an editor synthesis. Experimental and not yet benchmarked; use only when the user explicitly requests a panel review.
 - **Revision review (R1/R2):** read [references/revision-review.md](references/revision-review.md) and the existing dossier when available. Re-enter the workflow only for new or materially changed claim branches, then apply S5 to the completed revision-review draft.
 - **Audit an existing review draft:** use S3–S5 of [references/workflow.md](references/workflow.md), record the relevant dossier sections, and apply [references/style-profile.md](references/style-profile.md).
 - **Resume or hand off a long review:** read or instantiate [references/review-dossier-template.md](references/review-dossier-template.md), then continue from the earliest incomplete stage.
@@ -18,29 +18,16 @@ Produce a fair, claim-focused review that separates what the manuscript shows fr
 Read [references/review-template.md](references/review-template.md) and [references/style-profile.md](references/style-profile.md) only when drafting reviewer-facing prose.
 Read [references/final-pruning.md](references/final-pruning.md) only after a complete, source-verified draft exists. S5 may run in the same session or from the saved draft and dossier after handoff; do not load this reference during S0–S3.
 
-## Non-negotiable decisions
-
-1. Establish the study type, claim ambition, intended scope, and journal context before setting the evidence bar.
-2. Reconstruct a hierarchical claim architecture with stable H/M/E identifiers. Do not force a fixed number of claims. For each consequential evidence unit, record the actual comparison or perturbation and measured endpoint rather than only the figure's topic.
-3. Preserve the authors' wording and verb strength during neutral mapping. Keep observation, interpretation, mechanism, generalization, and clinical implication distinct.
-4. Before appraising claims, build literature-grounded field context in two layers: background for the manuscript's field and key entities, then literature specific to each claim. Appraise in three distinct passes: whether each evidence unit methodologically and statistically supports its claim (`E→M`), whether each individual claim is defensible (`M`), and whether the claim network supports each headline conclusion (`M→H` and `H↔H`). Use a final coverage audit only to detect omissions; do not let a reporting checklist substitute for scientific judgment.
-5. Separate the claim-validity bar from the venue-completeness bar. Journal level changes the expected evidence package, not whether a narrowly stated claim is true.
-6. Assign every retained issue an I identifier and trace each Major Comment to the affected claim, evidence or manuscript location, consequence, and requested action.
-7. State whether new evidence is validity-critical, venue-critical, or recommended strengthening. For a specific experiment, define the exact inference and ground its discriminating value in domain knowledge or directly relevant literature. Distinguish evidence that resolves the inference from supporting characterization. When useful, identify a decisive test, a valid alternative, and a claim-calibration fallback as alternative routes rather than cumulative demands. If the grounding is insufficient, request the needed evidence type instead of inventing a protocol.
-8. Offer an alternative only when it leaves a scientifically defensible and venue-appropriate contribution.
-9. Verify quotations, numbers, sample sizes, figure/table references, literature attributions, existing analyses, recommendation premises, and any diagnostic or field-standard assertion that materially drives a Major Comment before delivery.
-10. Keep author-facing comments objective, specific, and actionable. Keep internal maps, issue IDs, and strategic deliberations out of the report unless they improve clarity.
-11. The recommendation must follow from scientific validity, venue fit, severity, and realistic revisability.
-12. Preserve decision-relevant intermediate products in the review dossier. Record structured judgments, source propositions, and verification status rather than private chain-of-thought or an unfiltered search log.
-
 ## Default deliverable
 
 For a full initial or revision review, produce two distinct artifacts unless the user requests a narrower deliverable:
 
 1. **`peer-review.md`:** the concise author- and editor-facing report. Write submitted comments in English unless the user requests another language. Use the journal's required fields; otherwise include Overall Assessment, Major Comments, Recommended Revisions when useful, Minor Comments, Recommendation when requested, and Confidential Comment to Editor when useful.
-2. **`review-dossier.md`:** the confidential working record defined in [references/review-dossier-template.md](references/review-dossier-template.md), including review calibration, claim–evidence structure, literature grounding, issue traceability, verification status, and decision rationale.
+2. **`review-dossier.md`:** the confidential working record defined in [references/review-dossier-template.md](references/review-dossier-template.md), including the append-only discovery candidates, review calibration, claim–evidence structure, literature grounding, issue traceability, verification status, and decision rationale.
 
-When local file creation is authorized, save both artifacts together. Otherwise return them as clearly separated outputs. For a bounded claim, literature, or draft audit, include only the dossier sections needed for the requested scope. Do not submit or share the dossier with authors or editors unless the user explicitly requests it.
+Keep `discovery-notes.md` as an internal checkpoint for a full initial review. Do not submit or share it with authors or editors unless the user explicitly requests it.
+
+When local file creation is authorized, save all three artifacts together. Otherwise return the reviewer-facing report and dossier as clearly separated outputs and preserve the discovery record in the dossier. For a bounded claim, literature, or draft audit, include only the dossier sections needed for the requested scope. Do not submit or share the dossier with authors or editors unless the user explicitly requests it.
 
 ## Stop conditions
 

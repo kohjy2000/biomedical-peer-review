@@ -1,6 +1,6 @@
 # Biomedical Peer Review Framework
 
-Use this reference for the scientific judgments made in stages S0–S3 of the workflow. It defines the claim structure, evidence and logic appraisal, literature positioning, evidence-bar calibration, and issue tiering. The workflow controls order; this file controls judgment.
+Use this reference for the scientific judgments made in stages S0–S3 of the workflow, after the open discovery record has been saved. It defines the claim structure, evidence and logic appraisal, literature positioning, evidence-bar calibration, and issue tiering. The workflow controls order; this file controls judgment.
 
 ## 1. Hierarchical claim–evidence architecture
 
@@ -37,11 +37,11 @@ H1 — [High-level claim in the authors' wording]
 - Missing bridge or hidden assumption:
 ```
 
-Preserve the authors' wording and verb strength during extraction. Keep the authors' claim separate from the reviewer's description of what the evidence establishes. Build the map before assigning verdicts.
+Preserve the authors' wording and verb strength during extraction. Keep the authors' claim separate from the reviewer's description of what the evidence establishes. Build the map before assigning verdicts, but do not use it to rewrite or prune the earlier D# candidates.
 
 ## 2. Evidence adequacy (`E→M`)
 
-Assess each consequential evidence-to-claim link before deciding whether the mid-level claim itself is defensible. The unit of appraisal is a specific result or evidence unit supporting a specific claim, not the manuscript as a whole.
+Visit each mapped evidence-to-claim link before deciding whether the mid-level claim itself is defensible. The unit of appraisal is a specific result or evidence unit supporting a specific claim, not the manuscript as a whole. Use compact coverage rows for links without a material concern.
 
 ### Relevance and directness
 
@@ -51,7 +51,7 @@ Assess each consequential evidence-to-claim link before deciding whether the mid
 - Is the endpoint a valid measure of the claimed biological, clinical, or methodological property?
 - Does the result demonstrate function, or only expression, phenotype, correlation, or potential?
 
-Record the relation of each consequential evidence unit to its mid-level claim:
+Record the relation of each mapped evidence unit to its mid-level claim:
 
 - **Direct:** the comparison and endpoint test the distinction made by the claim.
 - **Indirect:** the result supports a required premise but does not itself test the full proposition.
@@ -98,13 +98,13 @@ Judge an animal, cell, ex vivo, organoid, computational, or other experimental m
 - Does the claim stay within the sampled tissue, population, model, time frame, and assay resolution?
 - Are negative results, internal exceptions, or heterogeneous subgroups obscured by an aggregate conclusion?
 
-For each consequential `E→M` link, record the relation (Direct / Indirect / Non-discriminating / Contradictory / Not assessable), the exact proposition the evidence establishes, and the material limitation. Do not turn every prompt above into a mandatory field when it is irrelevant to that link.
+For each mapped `E→M` link, record the relation (Direct / Indirect / Non-discriminating / Contradictory / Not assessable), the exact proposition the evidence establishes, and any material limitation. Do not turn every prompt above into a mandatory field when it is irrelevant to that link. Every material limitation must link to an append-only D/C candidate.
 
 ## 3. Claim and claim-network validity
 
 ### Individual claim validity (`M`)
 
-Combine all appraised `E→M` links for the claim with the relevant literature propositions. Identify the warrant or hidden premise needed to move from the observations to the claim, ask whether live alternatives have been discriminated, and state the narrowest defensible scope.
+Combine all appraised `E→M` links for the claim with the relevant literature propositions. Preserve the integrated question: what must be true for the claim to hold, what is the strongest live alternative, and do the current comparison, assay, experimental model, and analysis distinguish them? State the narrowest defensible scope.
 
 Use one internal verdict for each mid-level claim:
 
@@ -138,7 +138,7 @@ For each high-level claim, confirm that every necessary mid-level claim and brid
 
 ## 4. Literature positioning, field standards, and experimental precedent
 
-Build field knowledge before appraising claims, in two layers (workflow.md, S2a): background knowledge of the manuscript's field and key entities, then literature specific to each claim. Keep background within the field and entities of the claim map; do not collect general reading that defines no term and sets no expectation.
+Build field knowledge only after open discovery and neutral mapping, in two layers (workflow.md, S2a): background knowledge of the manuscript's field and key entities, then literature specific to unresolved candidates and consequential claims. Keep background within the field and entities of the claim map; do not collect general reading that defines no term and sets no expectation. Literature may add new candidates but must not erase or retroactively rewrite the open-discovery record.
 
 Assess four distinct questions:
 
@@ -154,7 +154,7 @@ Field knowledge row:
 - Proposition:
 - Context of validity: species / tissue / cell state / disease stage / cohort / model / assay / definition
 - Expected direction or size:
-- Related H/M/edge (or entity, for background rows):
+- Related D/C/H/M/edge (or entity, for background rows):
 - Assumption tested or alternative distinguished:
 - Discriminating readout:
 - Source ID and verification status:

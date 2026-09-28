@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Changed (v6 draft)
+
+- Full initial reviews now begin with an open manuscript-only discovery pass and source-coverage sweep before the claim map, literature search, appraisal framework, or report format is loaded.
+- Discovery candidates are preserved in an append-only register. Mapping, literature, and structured appraisal may add candidates; every material limitation must link to a candidate, and every candidate receives an explicit disposition.
+- The three evidence/claim/network judgments now act as post-discovery validation and compact coverage checks. Clean links are not expanded into repetitive prose.
+- Literature search occurs after discovery and can both validate existing candidates and generate new ones.
+- Default word-count and Major Comment count targets were removed. Independent validated issues may not be dropped or merged for presentation length.
+
 ### Changed (v5 draft)
 
 - S2b now uses three explicit appraisal passes: evidence adequacy for each `E→M` link, validity of each individual M claim, and validity of the `M→H`/`H↔H` claim network.
