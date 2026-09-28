@@ -105,14 +105,17 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 ### M1.1
 
 - Verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable; relation: Direct / Indirect / Non-discriminating / Contradictory
-- Comparison and endpoint fit to the claim:
-- Strongest evidence and main limitation:
-- Internal counter-evidence:
-- Scope and generalization limit:
-- Expected vs observed (K#); alternative explanation and discriminating request:
-- Can the system or reagent produce the claimed result? (K#):
-- Prior support, conflict, or controversy (K#); manuscript position: confirms / extends / contradicts / refines / reconciles / discriminates
-- Missing field-standard evidence; experimental precedent and its limitation (K#):
+- Measurement — comparison fit to the claim:
+- Measurement — does the readout measure the claimed property here (is the proxy valid in this population, age, tissue, species)?:
+- Measurement — is the choice of marker, target, or analysis justified?:
+- Weight — strongest evidence and main limitation; functional size of the effect:
+- Weight — internal counter-evidence; scope and generalization limit:
+- Field knowledge — label vs definition and nearest alternative state (K#):
+- Field knowledge — expected vs observed (K#); alternative explanation and discriminating request:
+- Field knowledge — prior support, conflict, or controversy (K#); manuscript position: confirms / extends / contradicts / refines / reconciles / discriminates
+- Chain — can the system or reagent produce the claimed result? (K#):
+- Chain — is the specific acting agent identified (component of the stimulus; direct binder or mediator)?:
+- Chain — missing field-standard evidence; experimental precedent and its limitation (K#):
 - Evidence that would change the verdict:
 - Verification flag:
 

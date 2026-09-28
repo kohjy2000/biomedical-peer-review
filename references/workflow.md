@@ -46,7 +46,7 @@ Reconstruct the manuscript neutrally as a hierarchical claim–evidence map.
 - the inferential role the authors assign to that evidence, such as association, necessity, sufficiency, prediction, validation, or generalization;
 - authors' wording, verb strength, intended scope, and claimed novelty;
 - dependencies among claims, including bridge claims and unstated prerequisites the chain relies on (for example, a condition the proposed mechanism requires);
-- S2a search targets: the field and keywords for the background layer; the entities (cells, molecules, loci, pathogens, interventions), variables (such as age, sex, time point, species, and tissue), and design arms in the consequential claims; and the manuscript sentences whose cited references carry a claim.
+- S2a search targets: the field and keywords for the background layer; the measured phenotypes and readouts, and what each represents biologically; the entities (cells, molecules, loci, pathogens, interventions), variables (such as age, sex, time point, species, and tissue), and design arms in the consequential claims; and the manuscript sentences whose cited references carry a claim.
 
 ### Gate
 
@@ -65,7 +65,8 @@ Before appraising any claim, search the literature in two layers, background fir
 - operational definitions and the nearest alternative states;
 - the field's current framework: major mechanisms and models, the other half of each axis (ligand or receptor, upstream or downstream), competing mechanisms, and live debates;
 - the normal baseline: composition, frequency range, kinetics, known differences by host variables such as age, sex, time, species, or tissue, and the known roles of the cells or molecules involved (effector or regulatory; cause or consequence);
-- field-standard methods, and what the experimental system or reagents can and cannot produce.
+- field-standard methods, and what the experimental system or reagents can and cannot produce;
+- conservation across species, species-specific differences, and model organisms or homologous systems in which the claim could be tested.
 
 Prefer reviews, consensus statements, and landmark studies. Keep this layer within the manuscript's field and key entities.
 
@@ -86,23 +87,36 @@ When sub-agents are available, run S2a in a sub-agent that receives S0, S1, and 
 
 Appraise each consequential M#.# in the inference-chain order of the study type ([review-framework.md](review-framework.md), section 5), or in S1 order when the type has no chain.
 
-**Manuscript evidence**
+**1. Verdict**
 
 - evidence verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable;
-- claim–evidence relation: Direct / Indirect / Non-discriminating / Contradictory;
-- whether the evidence's comparison and endpoint match the causal, temporal, population, or mechanistic distinction made by the claim, and whether the choice of marker, target, or analysis is justified;
-- strongest evidence and material limitation, including whether the effect is large enough to matter functionally;
+- claim–evidence relation: Direct / Indirect / Non-discriminating / Contradictory.
+
+**2. Measurement**
+
+- whether the evidence's comparison matches the causal, temporal, population, or mechanistic distinction made by the claim;
+- whether the measured readout captures the property the claim names in this population, age, tissue, and species; when a conventional proxy is used (for example, BMI for adiposity, a transcript for function, read counts for load), whether the convention holds here;
+- whether the choice of marker, target, or analysis is justified.
+
+**3. Weight of evidence**
+
+- strongest evidence and material limitation;
+- whether the effect is large enough to matter functionally;
 - internal counter-evidence: the manuscript's own readouts that point the other way;
 - limits of generalization.
 
-**Against field knowledge** (cite table rows)
+**4. Against field knowledge** (cite table rows)
 
 - whether the central labels meet their operational definition and are distinguished from the nearest alternative state;
 - expected versus observed: where they diverge, name the alternative explanation (see the five prompts in review-framework.md, section 2) and one request that would discriminate it;
-- whether the experimental system or reagent can, in principle, produce the claimed result: walk through the protocol step by step and note where it could fail;
 - prior evidence that supports or conflicts with the claim, including genuine controversy or competing models;
-- the field-standard evidence the claim lacks and, when a new experiment may be needed, directly relevant experimental precedent and its main limitation;
 - whether the manuscript confirms, extends, contradicts, refines, reconciles, or discriminates.
+
+**5. Inference chain** (for each step; cite table rows)
+
+- whether the experimental system or reagent can, in principle, produce the claimed result: walk through the protocol step by step and note where it could fail;
+- whether the specific acting agent is identified: which component of a composite stimulus or exposure acts, and what directly binds or mediates the next step;
+- the field-standard evidence the claim lacks and, when a new experiment may be needed, directly relevant experimental precedent and its main limitation.
 
 Before raising a point that depends on literature not yet in the table, run a targeted search and add the rows.
 
