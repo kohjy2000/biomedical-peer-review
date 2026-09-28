@@ -4,6 +4,28 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Changed (v4.2)
+
+- The Minor sweep runs in the main review again; a separate sub-agent added cost without improving recall in replicate tests.
+
+### Changed (v4.1)
+
+- Claim appraisal asks separately whether the measured readout captures the claimed property in the population, age, tissue, and species studied, including whether a conventional proxy holds.
+- Measured phenotypes and readouts are S1 search targets; background literature search covers cross-species conservation and model systems.
+- Claim appraisal (S2b) is grouped under five headings (verdict, measurement, weight of evidence, field knowledge, inference chain) without merging questions, and asks whether the specific acting agent in each step is identified.
+
+### Changed (v4)
+
+- S2 is split into S2a field knowledge (background literature for the field and key entities, then literature specific to each claim; one table of propositions; facts only; run in a sub-agent when available) and S2b claim appraisal in inference-chain order against the manuscript and that table.
+- Five general prompts for alternative explanations (measurement, state or time, cause, direction, context); the S2 gate requires an alternative or a recorded reason for every divergence between expected and observed.
+- Headline-level judgments add the disease or phenotype link and observations the authors' model does not explain; S1 records unstated prerequisites; each issue records the step that produced it.
+
+### Changed (v3.1)
+
+- Panel review is experimental and runs only on explicit request.
+- Replication, novelty against the closest prior work, and cross-cohort comparability are judged per headline claim in S2; pruning may not reverse them without a recorded reason.
+- The Minor sweep records findings only (no "none found" cells) and adds a line-by-line terminology read of the title, Abstract, and Results subheadings.
+
 ### Changed (v3)
 
 - Minor Comments target high-value issues (verifiability, reproducibility, correct interpretation), defined as eight classes derived from the round-1 referee points of the pilot papers.
