@@ -177,7 +177,6 @@ Apply the classes to each main figure, main table, and Methods section that supp
 
 Separately, read the title, the Abstract, and every Results subheading line by line for terminology and claim-verb precision, including whether key concept terms meet the field's definition (S2a background), and record each finding with its exact wording.
 
-When sub-agents are available, run the formal classes (counts and thresholds, statistical reporting, data and code availability, cohort and sample description, Methods detail, and figure elements) in a sub-agent that receives the manuscript and S1 and returns only the findings list; it may run alongside S2. Keep the terminology read and statements of context or prior work in the main review. The main review assigns every tier, and S4 re-checks any statement that something is absent.
 
 Promote a finding to a Minor Comment when it is high value; promote it further only when its consequence warrants it.
 
