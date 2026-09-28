@@ -54,9 +54,9 @@ Proceed when every important high-level claim is connected to all necessary mid-
 
 ## S2. Appraise
 
-Build the field knowledge first (S2a), then appraise each claim against the manuscript and that knowledge (S2b). Use [review-framework.md](review-framework.md) for scientific judgment.
+Build literature-grounded field context first (S2a), appraise evidence, claims, and the claim network in three passes (S2b), then run a coverage audit (S2c). Use [review-framework.md](review-framework.md) for scientific judgment.
 
-### S2a. Field knowledge
+### S2a. Literature and field context
 
 Before appraising any claim, search the literature in two layers, background first. Organize by topic, not by paper.
 
@@ -77,64 +77,79 @@ Prefer reviews, consensus statements, and landmark studies. Keep this layer with
 - directly relevant experimental precedent for the same inference, and external data that could replicate it;
 - whether the manuscript's key cited references support the sentences that cite them.
 
-Record one row per proposition in the field knowledge table: layer (background or specific), topic, proposition, context of validity, expected direction or size, related H/M claim (or entity, for background rows), discriminating readout, and source ID. Keep a row only when it defines a term, states an expected pattern, or bears on a claim. Record facts only; verdicts belong to S2b.
+Record one row per proposition in the field knowledge table: layer (background or specific), topic, proposition, context of validity, expected direction or size, related H/M/edge (or entity, for background rows), the assumption it tests or alternative it distinguishes, discriminating readout, source ID, and S2b use status. Keep a row only when it defines a term, states an expected pattern, or bears on a claim. Record facts only; verdicts belong to S2b. Set the initial use status to `Pending`; S2b must later mark each relevant row `Used` or `Set aside` with a reason.
 
 Register every source in the table with its full citation or stable identifier, source role, and verification status. Do not retain an undigested search-result list.
 
-When sub-agents are available, run S2a in a sub-agent that receives S0, S1, and the search targets and returns only the table and the source register; keep all verdicts in the main review. Otherwise run S2a in the same session with the same output.
+S2a may be delegated when the user and environment permit it. A delegated search receives S0, S1, and the search targets and returns only the proposition table and source register; the main review retains all verdicts and literature dispositions. Otherwise run S2a in the same session with the same output.
 
 ### S2b. Claim appraisal
 
-Appraise each consequential M#.# in the inference-chain order of the study type ([review-framework.md](review-framework.md), section 5), or in S1 order when the type has no chain.
+Use the three passes below in the inference-chain order of the study type ([review-framework.md](review-framework.md), section 5), or in S1 order when the type has no chain. The passes are fixed; the prompts within each pass are selected for relevance rather than filled mechanically.
 
-**1. Verdict**
+#### Pass A. Evidence adequacy (`E→M`)
 
-- evidence verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable;
-- claim–evidence relation: Direct / Indirect / Non-discriminating / Contradictory.
+For every consequential evidence-to-claim link, determine:
 
-**2. Measurement**
+- **inference alignment:** whether the comparison, perturbation or exposure, time point, population, estimand, and endpoint test the distinction made by the claim;
+- **measurement validity:** whether the readout, marker, target, or proxy measures the claimed property in this population, age, tissue, species, and assay context;
+- **experimental system or model fit:** the model's context of use, whether it preserves the biology needed for this inference, relevant distortions or missing components, and the boundary beyond which complementary evidence is required; when material, follow the protocol from intervention to readout and identify where another path could produce the result;
+- **internal validity:** controls, experimental unit, independence, provenance, confounding, selection, batch or leakage, exclusions, missingness, reagent validity, randomization or blinding when relevant;
+- **statistical or computational conclusion validity:** effect size and uncertainty, sample size, multiplicity, model assumptions, robustness or sensitivity, validation independence, and exploratory versus confirmatory status;
+- **counter-evidence and exact support:** internal results that point the other way, the exact proposition this evidence establishes, and what it does not establish.
 
-- whether the evidence's comparison matches the causal, temporal, population, or mechanistic distinction made by the claim;
-- whether the measured readout captures the property the claim names in this population, age, tissue, and species; when a conventional proxy is used (for example, BMI for adiposity, a transcript for function, read counts for load), whether the convention holds here;
-- whether the choice of marker, target, or analysis is justified.
+Record `Direct / Indirect / Non-discriminating / Contradictory / Not assessable`, the material limitation, and any field-knowledge rows used.
 
-**3. Weight of evidence**
+#### Pass B. Individual claim validity (`M`)
 
-- strongest evidence and material limitation;
-- whether the effect is large enough to matter functionally;
-- internal counter-evidence: the manuscript's own readouts that point the other way;
-- limits of generalization.
+For every consequential M#.#:
 
-**4. Against field knowledge** (cite table rows)
+- state the warrant and hidden premises required to move from the Pass A results to the claim;
+- combine the appraised evidence with the relevant S2a propositions, including definitions, expected patterns, support, conflict, and genuine controversy;
+- identify the strongest live alternative and whether the current evidence distinguishes it;
+- compare expected with observed and retain internal exceptions, negative results, or heterogeneous subgroups;
+- identify missing field-standard evidence and directly relevant experimental precedent when they would distinguish the live alternatives;
+- state the defensible scope and limits of generalization.
 
-- whether the central labels meet their operational definition and are distinguished from the nearest alternative state;
-- expected versus observed: where they diverge, name the alternative explanation (see the five prompts in review-framework.md, section 2) and one request that would discriminate it;
-- prior evidence that supports or conflicts with the claim, including genuine controversy or competing models;
-- whether the manuscript confirms, extends, contradicts, refines, reconciles, or discriminates.
+Record `Supported / Partially supported / Unsupported at the stated level / Not assessable`, the evidence that would change the verdict, and the S2a rows marked `Used`. Mark relevant rows not used in the verdict `Set aside` with a reason.
 
-**5. Inference chain** (for each step; cite table rows)
+#### Pass C. Claim-network validity (`M→H` and `H↔H`)
 
-- whether the experimental system or reagent can, in principle, produce the claimed result: walk through the protocol step by step and note where it could fail;
-- whether the specific acting agent is identified: which component of a composite stimulus or exposure acts, and what directly binds or mediates the next step;
-- the field-standard evidence the claim lacks and, when a new experiment may be needed, directly relevant experimental precedent and its main limitation.
+For every H# and consequential relationship among headline claims:
 
-Before raising a point that depends on literature not yet in the table, run a targeted search and add the rows.
+- confirm that every necessary M and bridge claim is present and appraised;
+- test the full chain for unsupported moves such as association→causation, marker→function, mechanism→phenotype, experimental model→target population, or selected examples→general performance;
+- for a composite stimulus or exposure, check whether the acting component and direct mediator required by the chain are actually identified;
+- distinguish necessary from sufficient evidence and check temporal order, causal direction, contradictions, circularity, and double counting;
+- identify the strongest evidence, weakest required bridge, defensible headline conclusion, remaining overclaim, and observations the authors' explanatory model does not explain;
+- judge novelty, disease or phenotype linkage, external replication, and cross-cohort, batch, platform, site, or model comparability when they matter to the headline claim.
 
-Roll these judgments up to each H#, identifying the strongest evidence, weakest bridge, defensible conclusion, and remaining overclaim.
+H-level status follows the weakest necessary claim or bridge, not an average across figures. These judgments are made here, not at pruning. S5 may compress or merge them but must not reverse them without recording why.
 
-For each H#, also record an explicit judgment, with its basis, on:
+Before raising a point that depends on literature not yet in the table, run a targeted search, add the proposition and source, and record its use.
 
-- external replication or independent validation: is it present, and is it needed for the claim at this venue?
-- novelty or added value relative to the closest prior datasets, resources, or studies;
-- whether the link to the disease or phenotype named in the claim is shown or only assumed;
-- comparability across cohorts, batches, platforms, or sites, when the claim pools or contrasts them;
-- observations the authors' model does not explain: results in the manuscript, including secondary ones, and established observations in the field knowledge table that the model leaves unexplained or contradicts, each with the alternative that would explain it.
+Record each consequential gap as an issue candidate with its origin and affected H/M/E/K. Do not silently discard candidates before S2c.
 
-These judgments are made here, not at pruning. S5 may compress or merge them but must not reverse them without recording why.
+### S2c. Coverage audit
+
+Run this only after the three S2b passes. It detects omissions; it does not make a second scientific judgment from a generic checklist.
+
+**Structural coverage**
+
+- every consequential `E→M` link has a Pass A relation or explicit Not assessable flag;
+- every consequential M has a Pass B verdict;
+- every necessary `M→H` and consequential `H↔H` link has a Pass C judgment;
+- every relevant S2a proposition is `Used` or `Set aside` with a reason;
+- counter-evidence, negative results, unexplained observations, and unresolved uncertainty remain visible;
+- every issue candidate is `Retained / Set aside / Pending` with a reason, and every retained candidate is traceable to H/M/E and relevant K/source IDs.
+
+**Conditional modules**
+
+Use S0 to select only the applicable reporting or risk-of-bias modules from [appraisal-modules.md](appraisal-modules.md). Reporting completeness enables appraisal but does not establish methodological validity. When a module reveals a consequential omission or bias signal, reopen the affected S2b pass and update its judgment; do not promote an unchecked item automatically.
 
 ### Gate
 
-Proceed when every headline claim and every mid-level claim necessary to assemble it has a traceable verdict or an explicit Not assessable flag, and every divergence between expected and observed, and every observation the model leaves unexplained, has an alternative explanation or a recorded reason for setting it aside. Do not treat literature agreement as validation, manufacture controversy, or treat evidence as direct when its comparison varies a correlated state, selection process, time point, or population rather than the attribute named in the claim. Do not claim that a model is distinguished when the data remain compatible with alternatives. Do not carry a specific new experiment into S3 unless its discriminating value is supported by field knowledge or directly relevant literature; otherwise record only the evidence type needed.
+Proceed when S2c confirms complete structural coverage or records each remaining Not assessable item; every divergence between expected and observed and every observation the authors' explanatory model leaves unexplained has an alternative or a recorded reason for setting it aside; and each relevant literature proposition and issue candidate has a disposition. Do not treat literature agreement as validation, manufacture controversy, or treat evidence as direct when its comparison varies a correlated state, selection process, time point, or population rather than the attribute named in the claim. Do not claim that a model is distinguished when the data remain compatible with alternatives. Do not carry a specific new experiment into S3 unless its discriminating value is supported by field knowledge or directly relevant literature; otherwise record only the evidence type needed.
 
 ## S3. Synthesize
 
@@ -144,7 +159,7 @@ Convert the appraisal into an issue ledger. Assign I# to every retained issue.
 
 - classification: Validity-critical / Venue-critical / Recommended strengthening / Minor;
 - affected H#, M#.#, and E#.#a where applicable;
-- origin: the step that produced it (S2b manuscript evidence, S2b field knowledge, H-level judgment, or Minor sweep);
+- origin: the step that produced it (S2b Pass A, Pass B, Pass C, S2c conditional module, or Minor sweep);
 - exact evidence or manuscript location;
 - problem and scientific or editorial consequence;
 - required action;
@@ -156,7 +171,7 @@ Convert the appraisal into an issue ledger. Assign I# to every retained issue.
 
 Also record the central bottleneck, scientific-validity judgment, venue-level adequacy, realistic revisability, and preliminary recommendation.
 
-Perform a coverage sweep of methods, statistics, ethics when relevant, reproducibility, data/code access, figures, tables, terminology, and conclusions versus the data range. Promote an issue only when its consequence warrants it.
+Perform a publication-quality sweep of methods, statistics, ethics when relevant, reproducibility, data/code access, figures, tables, terminology, and conclusions versus the data range. Promote an issue only when its consequence warrants it.
 
 #### Minor sweep
 

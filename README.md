@@ -20,7 +20,7 @@ The workflow uses six stages:
 | --- | --- |
 | S0 | Frame the study, claim ambition, and evidence bars |
 | S1 | Build the hierarchical claim-evidence map |
-| S2 | Appraise evidence, logic, literature, controversy, and novelty |
+| S2 | Build literature context; appraise `E→M`, M, and the claim network; audit coverage |
 | S3 | Convert findings into a classified issue ledger |
 | S4 | Draft and source-verify the reviewer-facing report |
 | S5 | Remove redundant or non-decisive requests without changing the judgment |
@@ -35,6 +35,7 @@ biomedical-peer-review/
 └── references/
     ├── workflow.md
     ├── review-framework.md
+    ├── appraisal-modules.md
     ├── review-dossier-template.md
     ├── review-template.md
     ├── style-profile.md
@@ -96,7 +97,7 @@ For a full initial or revision review, the skill produces two artifacts:
 2. **`review-dossier.md`** — the confidential analytical record. It retains:
    - target-journal and article-type calibration, with each requirement labeled as journal-stated, field standard, or reviewer calibration;
    - the hierarchical H/M/E claim–evidence map;
-   - claim-level evidence verdicts, logical gaps, alternatives, and generalization limits;
+   - result-specific `E→M` judgments, individual-claim verdicts, claim-network gaps, alternatives, and generalization limits;
    - literature consensus, conflicting evidence, controversy, experimental precedent, novelty, and a verified source register;
    - the issue/action ledger and its connection to the final Major Comments;
    - factual verification, recommendation rationale, and revision-resolution history.

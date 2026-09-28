@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Changed (v5 draft)
+
+- S2b now uses three explicit appraisal passes: evidence adequacy for each `E→M` link, validity of each individual M claim, and validity of the `M→H`/`H↔H` claim network.
+- Experimental systems and models are judged fit-for-purpose against the exact inference and context of use, including preserved biology, distortions, and generalization boundaries.
+- S2a remains a two-layer literature investigation and now records the claim or edge informed, the assumption or alternative addressed, and whether each relevant proposition was used or set aside.
+- S2c is a structural coverage audit rather than a second scientific checklist. Study-type reporting and risk-of-bias guidance is routed through conditional modules and can only reopen the affected S2b judgment.
+
 ### Changed (v4.2)
 
 - The Minor sweep runs in the main review again; a separate sub-agent added cost without improving recall in replicate tests.

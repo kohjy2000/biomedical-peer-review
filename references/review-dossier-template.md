@@ -9,7 +9,7 @@ Update it at stage boundaries rather than recording a running monologue. Preserv
 - Status and source set
 - S0 review calibration
 - S1 structured claim–evidence map
-- S2a field knowledge and source register; S2b claim appraisal
+- S2a literature and field context; S2b three-pass appraisal; S2c coverage audit
 - S3 issue and action ledger
 - Revision resolution ledger
 - S4 draft verification
@@ -22,7 +22,7 @@ Update it at stage boundaries rather than recording a running monologue. Preserv
 ## Status and Source Set
 
 - Mode: Initial / R1 / R2 / Claim audit / Literature audit / Draft audit
-- Current stage: S0 / S1 / S2 / S3 / S4 / S5
+- Current stage: S0 / S1 / S2a / S2b / S2c / S3 / S4 / S5
 - Completed stages:
 - Manuscript version and date:
 - Source set reviewed:
@@ -84,13 +84,13 @@ Update it at stage boundaries rather than recording a running monologue. Preserv
 
 [Repeat H claims as needed]
 
-## S2a — Field Knowledge
+## S2a — Literature and Field Context
 
 Search targets (from S1):
 
-| K# | Layer | Topic | Proposition | Context of validity | Expected direction/size | Related H/M or entity | Discriminating readout | Source ID |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| K1 | Background / Specific | | | | | | | L1 |
+| K# | Layer | Topic | Proposition | Context of validity | Expected direction/size | Related H/M/edge or entity | Assumption tested or alternative distinguished | Discriminating readout | Source ID | S2b use |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| K1 | Background / Specific | | | | | | | | L1 | Pending / Used / Set aside + reason |
 
 ### Literature Source Register
 
@@ -102,45 +102,95 @@ Include only sources that materially affect a claim verdict, evidence standard, 
 
 ## S2b — Claim Appraisal
 
-### M1.1
+### Pass A — Evidence Adequacy (`E→M`)
 
-- Verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable; relation: Direct / Indirect / Non-discriminating / Contradictory
-- Measurement — comparison fit to the claim:
-- Measurement — does the readout measure the claimed property here (is the proxy valid in this population, age, tissue, species)?:
-- Measurement — is the choice of marker, target, or analysis justified?:
-- Weight — strongest evidence and main limitation; functional size of the effect:
-- Weight — internal counter-evidence; scope and generalization limit:
-- Field knowledge — label vs definition and nearest alternative state (K#):
-- Field knowledge — expected vs observed (K#); alternative explanation and discriminating request:
-- Field knowledge — prior support, conflict, or controversy (K#); manuscript position: confirms / extends / contradicts / refines / reconciles / discriminates
-- Chain — can the system or reagent produce the claimed result? (K#):
-- Chain — is the specific acting agent identified (component of the stimulus; direct binder or mediator)?:
-- Chain — missing field-standard evidence; experimental precedent and its limitation (K#):
+#### E1.1a → M1.1
+
+- Inference alignment — comparison/perturbation, time, population, estimand, endpoint:
+- Measurement validity — readout, marker, target, or proxy in this context:
+- Experimental system/model fit — context of use, preserved biology, distortions, generalization boundary:
+- Internal validity — controls, unit, independence, provenance, bias/confounding, exclusions/missingness, reagents:
+- Statistical/computational validity — effect and uncertainty, n, multiplicity, assumptions, robustness, validation independence:
+- Internal counter-evidence:
+- Exact proposition established and not established:
+- Relation: Direct / Indirect / Non-discriminating / Contradictory / Not assessable
+- Material limitation:
+- K#/source used:
+- Verification flag:
+
+[Repeat for consequential E→M links]
+
+### Pass B — Individual Claim Validity (`M`)
+
+#### M1.1
+
+- Warrant and hidden premises:
+- Integrated evidence from Pass A:
+- Relevant definitions, expected patterns, support/conflict/controversy (K#):
+- Strongest live alternative and whether it is distinguished:
+- Internal exceptions, negative results, or heterogeneous subgroups:
+- Missing field-standard evidence and relevant precedent, if discriminating (K#):
+- Defensible scope and generalization limit:
+- Verdict: Supported / Partially supported / Unsupported at the stated level / Not assessable
 - Evidence that would change the verdict:
+- K# disposition updated:
 - Verification flag:
 
 [Repeat for consequential M claims, in inference-chain order]
 
-### High-Level Roll-Up
+### Pass C — Claim-Network Validity (`M→H`, `H↔H`)
 
 #### H1
 
-- Status at the stated level:
+- Necessary M claims and bridge status:
+- Inferential leaps, if any:
+- Acting component and direct mediator in composite stimuli or exposures, if applicable:
+- Necessary vs sufficient; temporal and causal direction:
+- Contradictions, circularity, or double counting:
 - Strongest evidence:
-- Weakest mid-level claim or bridge:
-- Defensible conclusion:
+- Weakest necessary claim or bridge:
+- Defensible headline conclusion:
 - Remaining overclaim:
 - Literature position and novelty:
+- Disease/phenotype link (shown or assumed):
 - External replication (present? needed at this venue? basis):
-- Cross-cohort/batch/platform comparability (if applicable):
-- Observations the model does not explain (manuscript or K#), with the alternative:
+- Cross-cohort/batch/platform/site/model comparability (if applicable):
+- Observations the authors' explanatory model does not explain (manuscript or K#), with the alternative:
+- H-level status at the stated level:
+
+[Repeat for H claims and record consequential H↔H relationships]
+
+## S2c — Coverage Audit
+
+### Structural Coverage
+
+| Coverage target | Complete / Not assessable / Missing | Missing item or disposition |
+| --- | --- | --- |
+| Consequential E→M links have Pass A relations | | |
+| Consequential M claims have Pass B verdicts | | |
+| Necessary M→H and consequential H↔H links have Pass C judgments | | |
+| Relevant K rows are Used or Set aside with reasons | | |
+| Counter-evidence, negative results, unexplained observations, and uncertainty remain visible | | |
+| Issue candidates are Retained / Set aside / Pending with reasons and traceability | | |
+
+### Conditional Modules Used
+
+| Module | Why applicable | Omission or bias signal | S2b pass reopened and result |
+| --- | --- | --- | --- |
+| | | | |
+
+### Issue-Candidate Disposition
+
+| Candidate | Origin and affected H/M/E/K | Retained / Set aside / Pending | Reason |
+| --- | --- | --- | --- |
+| | | | |
 
 ## S3 — Issue and Action Ledger
 
 ### I1 — [Validity-critical / Venue-critical / Recommended strengthening / Minor]
 
 - Affects: H# / M# / E#
-- Origin: S2b manuscript evidence / S2b field knowledge / H-level judgment / Minor sweep
+- Origin: S2b Pass A / S2b Pass B / S2b Pass C / S2c conditional module / Minor sweep
 - Exact evidence or manuscript location:
 - Problem:
 - Scientific or editorial consequence:

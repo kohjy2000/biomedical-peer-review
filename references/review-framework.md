@@ -39,9 +39,9 @@ H1 — [High-level claim in the authors' wording]
 
 Preserve the authors' wording and verb strength during extraction. Keep the authors' claim separate from the reviewer's description of what the evidence establishes. Build the map before assigning verdicts.
 
-## 2. Evidence robustness
+## 2. Evidence adequacy (`E→M`)
 
-Assess each mid-level claim before rolling the judgment up to its high-level claim.
+Assess each consequential evidence-to-claim link before deciding whether the mid-level claim itself is defensible. The unit of appraisal is a specific result or evidence unit supporting a specific claim, not the manuscript as a whole.
 
 ### Relevance and directness
 
@@ -63,6 +63,17 @@ Record the relation of each consequential evidence unit to its mid-level claim:
 - Are the comparison groups, controls, sampling frame, and experimental units appropriate?
 - Are confounders, batch effects, leakage, selection effects, and data provenance addressed?
 - Are validation data independent of model construction or hypothesis generation?
+
+### Experimental system or model fit
+
+Judge an animal, cell, ex vivo, organoid, computational, or other experimental model against the exact inference it is being used to support, not against an abstract ideal model.
+
+- What is the model's context of use: which causal, mechanistic, predictive, or generalization question is it meant to answer?
+- Does it preserve the biological feature required for that inference, and which relevant components are absent, altered, or artificially imposed?
+- Can the intervention, reagent, or protocol produce the claimed result in this system for reasons other than the proposed mechanism?
+- When material, does a stepwise trace from intervention through processing and measurement expose another route to the readout?
+- What conclusion can remain inside the model, and what step would be required to generalize beyond it?
+- Would a complementary model or orthogonal method test the same inference, or only a neighboring one?
 
 ### Analysis and uncertainty
 
@@ -87,6 +98,14 @@ Record the relation of each consequential evidence unit to its mid-level claim:
 - Does the claim stay within the sampled tissue, population, model, time frame, and assay resolution?
 - Are negative results, internal exceptions, or heterogeneous subgroups obscured by an aggregate conclusion?
 
+For each consequential `E→M` link, record the relation (Direct / Indirect / Non-discriminating / Contradictory / Not assessable), the exact proposition the evidence establishes, and the material limitation. Do not turn every prompt above into a mandatory field when it is irrelevant to that link.
+
+## 3. Claim and claim-network validity
+
+### Individual claim validity (`M`)
+
+Combine all appraised `E→M` links for the claim with the relevant literature propositions. Identify the warrant or hidden premise needed to move from the observations to the claim, ask whether live alternatives have been discriminated, and state the narrowest defensible scope.
+
 Use one internal verdict for each mid-level claim:
 
 - **Supported**
@@ -94,9 +113,9 @@ Use one internal verdict for each mid-level claim:
 - **Unsupported at the stated level**
 - **Not assessable**
 
-For each high-level claim, confirm that every necessary mid-level claim and bridge has been appraised, then identify the strongest evidence unit, the weakest mid-level claim or bridge, the exact defensible conclusion, and the smallest correction or additional evidence that would change the verdict. Do not average away a critical weak link because the paper contains many figures.
+Record the evidence that would change the verdict and the relevant field-knowledge rows. Literature agreement alone does not validate the present evidence, and literature disagreement alone does not invalidate it.
 
-## 3. Logical coherence
+### Claim-network validity (`M→H` and `H↔H`)
 
 Test individual inferential steps and the full chain:
 
@@ -113,7 +132,9 @@ Flag when the manuscript converts:
 - computational association into therapeutic or clinical utility;
 - one possible mechanism into the exclusive mechanism without excluding alternatives or mixtures.
 
-Also check for missing bridge claims, necessary conditions treated as sufficient, conflicting definitions, circular construction and validation, high-level conclusions dependent on one unsupported mid-level claim, and conclusions compatible with several competing models.
+Also check for missing bridge claims, necessary conditions treated as sufficient, unidentified acting components or direct mediators in composite stimuli, conflicting definitions, circular construction and validation, high-level conclusions dependent on one unsupported mid-level claim, and conclusions compatible with several competing models.
+
+For each high-level claim, confirm that every necessary mid-level claim and bridge has been appraised, then identify the strongest evidence unit, the weakest mid-level claim or bridge, the exact defensible conclusion, and the smallest correction or additional evidence that would change the verdict. Do not average away a critical weak link because the paper contains many figures.
 
 ## 4. Literature positioning, field standards, and experimental precedent
 
@@ -133,9 +154,11 @@ Field knowledge row:
 - Proposition:
 - Context of validity: species / tissue / cell state / disease stage / cohort / model / assay / definition
 - Expected direction or size:
-- Related H/M claim (or entity, for background rows):
+- Related H/M/edge (or entity, for background rows):
+- Assumption tested or alternative distinguished:
 - Discriminating readout:
 - Source ID and verification status:
+- S2b use status: pending / used / set aside with reason
 ```
 
 Use, as needed:
@@ -186,7 +209,7 @@ Calibrate using the study type, claim ambition, intended scope, field-standard c
 
 ### Inference chains
 
-S2b appraises claims in the order of the study type's inference chain:
+S2b Passes B and C appraise claims in the order of the study type's inference chain:
 
 - **Mechanistic:** cause → mediator → effect → phenotype.
 - **Genetic association:** variant → gene or regulatory element → cell type or context → trait.
