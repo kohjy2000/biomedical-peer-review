@@ -250,7 +250,7 @@ Before naming a specific experiment, determine:
 - how positive, negative, and null results would change the affected claim;
 - whether existing data, reanalysis, or a narrower claim could resolve the issue with less burden.
 
-When useful, formulate three internal routes:
+When useful, formulate four internal routes:
 
 - **Decisive test:** the most direct field-grounded way to resolve the inference;
 - **Valid alternative:** a different feasible design that resolves the same inference with acceptable limitations;
@@ -272,6 +272,6 @@ Before choosing the recommendation, record for each Major Comment the proportion
 
 - If every Major Comment can be resolved by clarification, reanalysis of existing data, robustness analysis, or claim calibration, and the calibrated claim still meets the journal's threshold, do not recommend Reject; Major Revision is the default.
 - Recommend Reject only when at least one issue needs evidence that is not realistically obtainable within a revision, or when the defensible calibrated claim would fall below the journal's threshold. Name that issue and the reason in the recommendation rationale.
-- Before treating an issue as decisive for the venue, state what the field and journal normally accept for this study type (for example, descriptive efficacy comparisons and exploratory biomarkers in early-phase trials, or exploratory Mendelian randomization in a discovery genetics paper). Distinguish "valid issue" from "issue that decides the venue".
+- Before treating an issue as decisive for the venue, state what the field and journal normally accept for this study type. Distinguish "valid issue" from "issue that decides the venue".
 
 Do not disguise a venue-fit judgment as a data-validity flaw. State author-actionable scientific gaps to the authors and keep strategic journal-fit reasoning in the recommendation or confidential editor comment when appropriate.

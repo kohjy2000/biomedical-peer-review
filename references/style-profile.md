@@ -43,8 +43,8 @@ Unless [formal test/direct evidence] is provided, use [more accurate term] rathe
 - Treat claim calibration as a substantive scientific correction, not a cosmetic edit.
 - Point to the exact conflicting figure, cohort, assay, or wording when possible.
 - Distinguish transcriptional or phenotypic potential from demonstrated function.
-- Distinguish pathway requirement from the identity or source of the upstream ligand.
-- Distinguish immune exclusion from immune-low/desert, developmental relationship from cross-sectional similarity, and additive effects from formally demonstrated synergy.
+- Distinguish a required pathway from the identity or source of the acting signal.
+- Distinguish a measured state from demonstrated function, a developmental relationship from cross-sectional similarity, and interaction from additivity.
 - In revisions, explicitly acknowledge meaningful improvements before defining what remains.
 - Accept a limitation plus narrower claim when it resolves the scientific problem and leaves a contribution appropriate for the current journal; otherwise identify the remaining venue-fit gap.
 
@@ -66,7 +66,7 @@ Prefer:
 - `is consistent with`;
 - `suggests a possible association`;
 - `transcriptionally distinct`;
-- `cytotoxic potential` or `cytotoxic-program enrichment`;
+- wording that names the measured program or capacity without converting it into demonstrated function;
 - `hypothesis-generating`;
 - `within this cohort` or `in the sampled tissue`.
 

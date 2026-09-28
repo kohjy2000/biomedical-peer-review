@@ -24,14 +24,9 @@ A minimum evidentiary route may contain multiple inseparable components. Do not 
 
 ## Coverage preservation
 
-Before pruning, compare the draft with both the candidate register and the S3 issue ledger. Every Validated or Weakened candidate must have an S3 disposition, and every Validity-critical or Venue-critical I# must appear in the draft or carry a recorded drop reason in the dossier.
+Before pruning, compare the draft with both the candidate register and the S3 issue ledger. Every Validated or Weakened candidate must have an S3 disposition. Every Unresolved candidate must become a proportionate clarification or qualification request, or carry a one-line reason why it cannot affect the report. Every Validity-critical or Venue-critical I# must appear in the draft or carry a recorded drop reason in the dossier.
 
-Give explicit keep, move, or drop decisions, with a one-line reason, for any ledger issue in these commonly decisive classes. The first three are judged in S2 (workflow.md, High-level roll-up); a drop that contradicts the S2 judgment must say why the S2 judgment was wrong:
-
-- external replication or independent validation of the headline result;
-- novelty or added value relative to the closest prior datasets, resources, or studies;
-- comparability across cohorts, batches, platforms, or sites, including covariate harmonization;
-- data, code, or summary-statistic availability needed to verify the central claims.
+Give explicit keep, move, or drop decisions, with a one-line reason, for any ledger issue whose removal could change claim validity, novelty, external validity, reproducibility, or venue fit. A drop that contradicts an S2 judgment must say why that judgment changed.
 
 Do not drop an issue in these classes to meet a length or comment-count preference; merge it only with a comment that shares the same underlying scientific defect, consequence, and remedy.
 
@@ -44,7 +39,7 @@ For each Major Comment:
 1. retain one central claim-level defect and its consequence;
 2. retain the minimum evidentiary route that resolves that consequence;
 3. include a claim-calibration fallback only when it remains scientifically and editorially defensible;
-4. move Recommended actions to a separate section when the journal permits; otherwise label them clearly as non-essential or omit them;
+4. move Recommended actions to a separate section when the journal permits; otherwise label them clearly as non-essential. A Recommended action derived from a Validated or Weakened candidate may be omitted only with a one-line dossier reason;
 5. remove duplicated requests from other comments.
 
 Treat two routes as alternatives only when both resolve the same inference. Evidence of presence, association, plausibility, or additional characterization does not substitute for a causal, functional, predictive, or generalization test when that is the unresolved inference.
@@ -72,7 +67,8 @@ Deliver only when:
 - every high-value Minor sweep finding appears as a Minor Comment or is recorded as duplicated;
 - every author action has a disposition;
 - every Major Comment contains a central defect, consequence, and minimum required route;
-- Recommended strengthening is separated or omitted;
+- Recommended strengthening is separated; any omitted action derived from a Validated or Weakened candidate has a recorded reason;
+- every Unresolved candidate has a clarification/qualification request or a recorded reason it cannot affect the report;
 - every stated alternative resolves the same inference as the direct route;
 - duplicated requests and non-essential background are removed;
 - the final recommendation still follows from the surviving issues and their remedy profile (see review-framework.md, section 7);

@@ -4,12 +4,12 @@ Use this file only after the open discovery gate in [discovery.md](discovery.md)
 
 ## Entry rules
 
-- A full initial review enters S0 only after `discovery-notes.md` has been saved. Import its D# candidates and source-coverage table into `review-dossier.md` without rewriting or pruning them, then proceed through S5.
+- A full initial review enters S0 only after `discovery-notes.md` has been saved. Treat that file as the canonical discovery record. Import each D# identifier and the fields needed for status and traceability into `review-dossier.md` without rewriting or pruning the concern; link to the discovery file instead of duplicating its full prose, then proceed through S5.
 - A bounded task starts at the earliest stage needed for that task and records only the relevant dossier sections.
 - If a reliable review dossier exists, read it first and do not repeat completed stages unless the manuscript, evidence, or journal context changed.
 - Keep the identifiers H# (high-level claim), M#.# (mid-level claim), E#.#a (evidence unit), and I# (review issue) stable.
 - Keep the candidate register append-only. D# identifies open-discovery candidates; C# identifies candidates added by mapping, literature, or structured appraisal. Later stages may validate, weaken, reject, or leave a candidate unresolved, but must not erase it.
-- At the end of each completed stage, update the dossier with the stage output, open verification flags, and one next bounded action.
+- At the end of each completed stage, update the affected dossier section in place with the stage output, open verification flags, and one next bounded action. Do not rewrite unchanged sections.
 - Do not advance past a gate merely to begin drafting. If a required input is missing, mark the affected item Not assessable and continue only with independent work.
 - Record concise, auditable judgments and their supporting sources. Do not record private chain-of-thought or an unfiltered search history.
 
@@ -48,7 +48,7 @@ Reconstruct the manuscript neutrally as a hierarchical claim–evidence map.
 - authors' wording, verb strength, intended scope, and claimed novelty;
 - dependencies among claims, including bridge claims and unstated prerequisites the chain relies on (for example, a condition the proposed mechanism requires);
 - links from each D# candidate to the H/M/E unit or manuscript location it may affect, without deciding the candidate's validity;
-- S2a search targets: the field and keywords for the background layer; the measured phenotypes and readouts, and what each represents biologically; the entities (cells, molecules, loci, pathogens, interventions), variables (such as age, sex, time point, species, and tissue), and design arms in the consequential claims; and the manuscript sentences whose cited references carry a claim.
+- S2a search targets: the field and keywords needed to define consequential terms or expectations; the measured phenotypes and readouts and what each represents biologically; the entities, contextual variables, transfer boundaries, and design arms that could change a candidate or claim judgment; and the manuscript sentences whose cited references carry a consequential claim.
 
 ### Gate
 
@@ -62,17 +62,19 @@ After open discovery and neutral mapping, build literature-grounded field contex
 
 Search the literature only after D0–D1 and S1 are complete. Organize by topic, not by paper. Literature serves two purposes: test and develop existing candidates, and add genuinely new candidates that were not apparent from the manuscript alone.
 
-**Background (field and keywords).** For the manuscript's field and the S1 entities and variables, look for:
+Search only when external knowledge could change a candidate disposition, claim scope, evidence standard, novelty judgment, or proposed remedy. Do not build a general field compendium.
+
+**Background (field and keywords).** For the manuscript's field and the S1 entities and variables that matter to a judgment, look for:
 
 - operational definitions and the nearest alternative states;
-- the field's current framework: major mechanisms and models, the other half of each axis (ligand or receptor, upstream or downstream), competing mechanisms, and live debates;
-- the normal baseline: composition, frequency range, kinetics, known differences by host variables such as age, sex, time, species, or tissue, and the known roles of the cells or molecules involved (effector or regulatory; cause or consequence);
+- the field's current framework, competing mechanisms, and live debates relevant to the manuscript's inference;
+- the normal baseline, contextual modifiers, and biological roles needed to interpret the measured pattern;
 - field-standard methods, and what the experimental system or reagents can and cannot produce;
-- conservation across species, species-specific differences, and model organisms or homologous systems in which the claim could be tested.
+- transfer limits across the populations, biological systems, or model contexts to which the claim is generalized.
 
 Prefer reviews, consensus statements, and landmark studies. Keep this layer within the manuscript's field and key entities.
 
-**Specific (candidates and claims).** Using the background vocabulary, search for every unresolved D/C candidate and each consequential H/M claim:
+**Specific (candidates and claims).** Using the background vocabulary, search for each D/C candidate or consequential H/M claim whose disposition still depends on external knowledge:
 
 - prior reports of the same or a closely related finding;
 - studies that support or contradict the claim;
@@ -108,15 +110,15 @@ Record why. Rejected candidates remain in the register. A new concern discovered
 
 #### Pass A. Evidence adequacy (`E→M`)
 
-Visit every mapped evidence-to-claim link. Judge, as relevant, inference alignment; measurement validity; experimental-system or model fit for the exact context of use; internal validity; statistical or computational conclusion validity; counter-evidence; and the exact proposition established and not established. Record a compact relation: `Direct / Indirect / Non-discriminating / Contradictory / Not assessable`, plus candidate IDs when a material limitation exists.
+Visit every mapped evidence-to-claim link. Judge, as relevant, inference alignment; measurement validity; experimental-system or model fit for the exact context of use; internal validity; statistical or computational conclusion validity; counter-evidence; and the exact proposition established and not established. Record a compact relation: `Direct / Indirect / Non-discriminating / Contradictory / Not assessable`, plus candidate IDs when a material limitation exists. List clean Direct links as one compact ID line; retain a row only for a limitation, counter-signal, or Not assessable link.
 
 #### Pass B. Individual claim validity (`M`)
 
-Visit every mapped M claim. Combine its Pass A results with relevant definitions, expected patterns, prior support or conflict, internal exceptions, and scope. Record `Supported / Partially supported / Unsupported at the stated level / Not assessable`, plus candidate IDs for every material hidden premise, live alternative, missing discriminating evidence, or generalization problem.
+Visit every mapped M claim. Combine its Pass A results with relevant definitions, expected patterns, prior support or conflict, internal exceptions, and scope. List clean Supported claims as one compact ID line; retain a row for `Partially supported / Unsupported at the stated level / Not assessable` and for every material hidden premise, live alternative, missing discriminating evidence, or generalization problem, with candidate IDs.
 
 #### Pass C. Claim-network validity (`M→H` and `H↔H`)
 
-Visit every H claim, necessary bridge, and consequential relationship among headline claims. Test whether the required M claims jointly support the conclusion, including causal direction, necessary versus sufficient evidence, acting components or mediators, contradictions, circularity, double counting, novelty, and observations the proposed model does not explain. Record the status of each edge and candidate IDs for every material weak bridge or overclaim. H-level status follows the weakest necessary claim or bridge, not an average across figures.
+Visit every H claim, necessary bridge, and consequential relationship among headline claims. Test whether the required M claims jointly support the conclusion, including causal direction, necessary versus sufficient evidence, acting components or mediators, contradictions, circularity, double counting, novelty, and observations the proposed model does not explain. List clean supported edges compactly; retain a row and candidate IDs for every material weak bridge, overclaim, contradiction, or Not assessable edge. H-level status follows the weakest necessary claim or bridge, not an average across figures.
 
 Any material negative or limiting judgment in Pass A, B, or C must append or link a D/C candidate at the time it is made. Do not mention a material concern in appraisal prose without registering it. Before S2c, adjudicate every candidate added during the three passes using the same integrated challenge and status rules. Before validating a candidate that depends on literature not yet in the table, run a targeted search, add the proposition and source, and record its use.
 
@@ -134,6 +136,7 @@ Run this only after candidate validation and the three structured passes. It det
 - counter-evidence, negative results, unexplained observations, and unresolved uncertainty remain visible;
 - every D/C candidate remains in the append-only register with `Validated / Weakened / Rejected / Unresolved`, a reason, and traceability to the manuscript and relevant H/M/E/K IDs;
 - every material limitation stated anywhere in S1 or S2 links to a candidate rather than remaining only in prose.
+- every Validated or Weakened candidate is linked to an S3 issue or carries an explicit non-promotion reason; every Unresolved candidate is converted to a proportionate clarification/qualification request or carries a recorded reason why it cannot affect the report.
 
 **Conditional modules**
 
@@ -191,7 +194,7 @@ Promote a finding to a Minor Comment when it is high value; promote it further o
 
 Proceed when every proposed Major Comment maps to an H/M/E identifier or exact manuscript location and has a stated consequence and action. A Major Comment must be validity-critical or venue-critical. Separate the minimum evidence needed to resolve the inference from supporting characterization; do not present the latter as an additional required experiment unless it is necessary to interpret the decisive evidence. A named experiment must test the affected claim rather than merely add characterization. An alternative route is acceptable only when it resolves the scientific issue and preserves a contribution appropriate for the current journal.
 
-Before drafting, consolidate issues only when they share the same underlying scientific defect, consequence, and corrective action. Preserve independent critical issues even when they arise from the same figure or claim. Final request triage and prose compression occur in S5; neither step may impose a target number of Major Comments.
+Before drafting, consolidate issues only when they share the same underlying scientific defect, consequence, and corrective action. Preserve independent critical issues even when they arise from the same figure or claim. Record the disposition of every Validated, Weakened, or Unresolved candidate. Final request triage and prose compression occur in S5; neither step may impose a target number of Major Comments.
 
 ## S4. Draft and verify
 
@@ -225,7 +228,7 @@ Record verification outcomes and unresolved questions in the dossier. Proceed to
 
 After a complete, source-verified draft exists, read [final-pruning.md](final-pruning.md). Use the S3 issue ledger and S4 draft as the primary inputs. Re-open source material only when a proposed edit could change a factual statement, scientific judgment, evidence bar, or recommendation premise.
 
-This is an editorial decision pass on `peer-review.md`, not a new appraisal. Classify every requested author action, retain the minimum evidentiary route required for each Major Comment, move non-decisive strengthening to Recommended Revisions when the journal permits or omit it, test whether proposed alternatives resolve the same inference, remove duplication, and compress the prose without changing the supported scientific judgment. Preserve the analytical detail in the dossier and update its final action dispositions and recommendation rationale.
+This is an editorial decision pass on `peer-review.md`, not a new appraisal. Classify every requested author action, retain the minimum evidentiary route required for each Major Comment, move non-decisive strengthening to Recommended Revisions when the journal permits, test whether proposed alternatives resolve the same inference, remove duplication, and compress the prose without changing the supported scientific judgment. A Recommended action derived from a Validated or Weakened candidate may be omitted only with a one-line dossier reason. Preserve the analytical detail in the dossier and update its final action dispositions and recommendation rationale.
 
 ### Gate
 

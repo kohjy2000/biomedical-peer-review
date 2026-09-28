@@ -1,8 +1,8 @@
 # Review Dossier Template
 
-For a full initial review, instantiate this dossier only after `discovery-notes.md` has been saved under [discovery.md](discovery.md). Import the discovery record without alteration. Use the dossier for the remaining initial review and for every revision review. It is the retained analytical record and the session-state ledger; it is not part of the author-facing report. For a bounded claim, literature, or draft audit, complete only the sections needed for that scope.
+For a full initial review, instantiate this dossier only after `discovery-notes.md` has been saved under [discovery.md](discovery.md). Treat that file as the canonical discovery record and import its D# identifiers and traceability fields without alteration; do not duplicate its full prose. Use the dossier for the remaining initial review and for every revision review. It is the retained analytical record and the session-state ledger; it is not part of the author-facing report. For a bounded claim, literature, or draft audit, complete only the sections needed for that scope.
 
-Update it at stage boundaries rather than recording a running monologue. Preserve structured judgments, source propositions, evidence locations, and verification status; do not record private chain-of-thought or an unfiltered search log. Keep manuscript excerpts to the minimum needed to identify claims. Store the dossier locally and do not transmit it unless the user explicitly requests that action.
+Update the affected section in place at stage boundaries rather than rewriting the dossier or recording a running monologue. Preserve structured judgments, source propositions, evidence locations, and verification status; do not record private chain-of-thought or an unfiltered search log. Keep manuscript excerpts to the minimum needed to identify claims. Store the dossier locally and do not transmit it unless the user explicitly requests that action.
 
 ## Sections
 
@@ -35,7 +35,10 @@ Update it at stage boundaries rather than recording a running monologue. Preserv
 
 ## D0–D1 — Open Discovery
 
-Import `discovery-notes.md` without rewriting, merging, prioritizing, or pruning its entries.
+- Canonical discovery file: `discovery-notes.md`
+- D# identifiers imported: [compact list]
+
+Do not copy the full discovery entries here. Preserve their wording in the canonical file; copy only the fields needed for the append-only status and traceability register below.
 
 ### Source-Coverage Sweep
 
@@ -143,17 +146,32 @@ Complete this only for D/C candidates, not for clean links.
 
 ### Pass A Coverage — Evidence Adequacy (`E→M`)
 
+- Clean Direct links visited: [compact E→M ID list]
+- Total mapped / visited / Not assessable:
+
+Rows below are only for non-Direct, materially limited, contradictory, or Not assessable links.
+
 | E→M link | Visited | Relation | Exact proposition established / material limitation | D/C candidate IDs | K#/source used | Verification flag |
 | --- | --- | --- | --- | --- | --- | --- |
 | | Yes / Not assessable | Direct / Indirect / Non-discriminating / Contradictory / Not assessable | | | | |
 
 ### Pass B Coverage — Individual Claim Validity (`M`)
 
+- Clean Supported claims visited: [compact M# list]
+- Total mapped / visited / Not assessable:
+
+Rows below are only for Partially supported, Unsupported, materially limited, or Not assessable claims.
+
 | M claim | Visited | Verdict | Defensible scope / material premise or alternative | D/C candidate IDs | K#/source used | Verification flag |
 | --- | --- | --- | --- | --- | --- | --- |
 | | Yes / Not assessable | Supported / Partially supported / Unsupported at stated level / Not assessable | | | | |
 
 ### Pass C Coverage — Claim-Network Validity (`M→H`, `H↔H`)
+
+- Clean supported edges visited: [compact edge list]
+- Total mapped / visited / Not assessable:
+
+Rows below are only for materially weak, contradictory, overclaimed, or Not assessable edges.
 
 | H or edge | Visited | Necessary claims and bridge status | Defensible conclusion / material weak link | D/C candidate IDs | K#/source used | Verification flag |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -186,8 +204,9 @@ If a coverage row contains a material negative or limiting judgment, it must lin
 
 - Candidate rows deleted or overwritten: None / [explain and restore]
 - Candidates added after open discovery:
-- Validated or Weakened candidates not promoted to S3, with reason:
-- Unresolved candidates and effect on the review:
+- Validated or Weakened candidates not promoted to S3, with one-line reason:
+- Unresolved candidates converted to clarification/qualification requests:
+- Unresolved candidates omitted from the report, with one-line reason they cannot affect it:
 
 ## S3 — Issue and Action Ledger
 
@@ -271,6 +290,7 @@ Complete this section for R1/R2 reviews.
 - Requested actions classified:
 - Minimum required routes retained:
 - Recommended strengthening moved or omitted:
+- Omitted Recommended actions derived from Validated/Weakened candidates, with one-line reasons:
 - Alternative-route equivalence checked:
 - Duplicated requests removed:
 - Final word count and Major Comment count:

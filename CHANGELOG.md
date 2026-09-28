@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Changed (v6.1 draft)
+
+- Unresolved candidates now require a clarification/qualification request or a recorded non-impact reason; omitted Recommended actions derived from surviving candidates require a one-line disposition.
+- Clean evidence, claim, and claim-network coverage is recorded as compact ID lists while detailed rows are retained only for limitations and Not-assessable items.
+- `discovery-notes.md` remains the canonical D0/D1 record; the dossier imports compact candidate status and traceability instead of duplicating the full discovery prose.
+- Literature search is targeted to judgments that depend on external knowledge rather than building a general field compendium.
+- Removed dangling and inconsistent pruning/framework wording and generalized case-derived examples.
+
 ### Changed (v6 draft)
 
 - Full initial reviews now begin with an open manuscript-only discovery pass and source-coverage sweep before the claim map, literature search, appraisal framework, or report format is loaded.
