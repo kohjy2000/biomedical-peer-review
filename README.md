@@ -1,143 +1,149 @@
-# Biomedical Peer Review Skill
+# Biomedical Peer Review
 
-A claim-focused workflow for reviewing immunology and biomedical manuscripts with Codex, Claude Code, and other Agent Skills-compatible environments.
+**Understand what a study establishes. Identify the changes that would most improve it.**
 
-The skill reconstructs a manuscript as a hierarchical claim-evidence map, evaluates evidence robustness and logical connections, positions each important claim against the literature, calibrates the evidence bar to the study type and journal, and produces both an actionable reviewer report and an auditable review dossier. It supports initial submissions, revised manuscripts, audits of existing review drafts, and long-session handoffs.
+An AI skill for evaluating biomedical manuscripts and helping authors improve their research. It combines an independent initial review, a source-linked evidence map, literature research, and one informed scientific reassessment. The result is a prioritized review **and reusable research materials** that explain the study, its context, and its remaining uncertainties.
 
-## What it is designed to evaluate
+The workflow is organized around two questions:
 
-- whether the evidence supports each claim at the stated strength and scope;
-- whether high-level conclusions are assembled from supported mid-level claims;
-- whether the work confirms, extends, contradicts, refines, or discriminates among prior models;
-- whether relevant controversy, field standards, and experimental precedent change the judgment;
-- whether requested revisions are validity-critical, venue-critical, recommended strengthening, or minor;
-- whether a proposed experiment actually resolves the affected inference;
-- whether the final review is concise, traceable, and proportionate.
+- **What has this study actually established, and why does it matter?**
+- **Which revisions or additional analyses would most improve its credibility and value?**
 
-The workflow uses six stages:
+## How it works
 
-| Stage | Purpose |
-| --- | --- |
-| S0 | Frame the study, claim ambition, and evidence bars |
-| S1 | Build the hierarchical claim-evidence map |
-| S2 | Build literature context; appraise `E→M`, M, and the claim network; audit coverage |
-| S3 | Convert findings into a classified issue ledger |
-| S4 | Draft and source-verify the reviewer-facing report |
-| S5 | Remove redundant or non-decisive requests without changing the judgment |
+```mermaid
+flowchart TD
+    A["Manuscript + figures<br/>+ supplements"]
+    A --> P["Prepare and check<br/>source evidence"]
 
-## Repository structure
+    P --> B["1. Initial review<br/>Independent context"]
+    P --> C["2. Evidence map<br/>Claims and observations"]
+    C --> D["Literature research<br/>Background + relevant studies"]
 
-```text
-biomedical-peer-review/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    ├── workflow.md
-    ├── review-framework.md
-    ├── appraisal-modules.md
-    ├── review-dossier-template.md
-    ├── review-template.md
-    ├── style-profile.md
-    ├── revision-review.md
-    └── final-pruning.md
+    B --> E["3. Reassess once<br/>Review all evidence together"]
+    D --> E
+    P --> E
+    T["Skill + template<br/>+ editing guide"] --> E
+
+    E --> F["Assessment<br/>+ complete draft"]
+    F --> G["Edit and verify<br/>Facts, priorities and actions"]
+    G --> H["Final review<br/>+ reusable working materials"]
 ```
 
-`SKILL.md` is the entry point. Detailed guidance is loaded from `references/` only when needed. `agents/openai.yaml` supplies optional Codex UI metadata; it is not required by Claude Code.
+**Steps 1, 2 and 3 are three separate generation calls.** The host assistant—the AI running the workflow in your session—handles source preparation, literature research, and editing around those calls. Those tasks also consume time and model usage; they are not included in the helper's generation-token totals.
 
-## Install
+The initial review stays hidden while the evidence map and literature notes are prepared. The final call then receives the complete packet, including the original manuscript and figures. The host edits and checks the saved draft before finalizing it; there is no separate default scoring or integration call.
 
-### Codex
+### What each stage contributes
+
+| Stage | Work performed | Useful result |
+| --- | --- | --- |
+| Initial review | Evaluate the manuscript in a fresh context without the skill, prior reviews, or preparation notes. | An independent starting assessment to retain, correct, or deepen. |
+| Evidence map | Connect important claims to actual comparisons, biological units, measurements and results; separate observations from interpretations. | A navigable account of what was studied and what supports each claim. |
+| Literature research | Establish the field background, then examine directly relevant studies. Record what each source contributes and what was actually accessible. | Context for judging significance, alternative explanations and useful improvements. |
+| Scientific reassessment | Read the evidence and initial review together once, preserving sound judgments and revisiting consequential gaps. | A coherent assessment and complete review draft with prioritized actions. |
+| Editing and verification | Check factual wording, repeated demands, sufficient alternatives, required versus optional work, and the selected template. | A checked review, with consequential edits documented separately. |
+
+### The scientific questions
+
+The reassessment considers three connected questions, then decides what findings to retain and what the authors should improve first.
+
+| Perspective | Question |
+| --- | --- |
+| **Evidence** | What do the observations reliably show, under which conditions and with what uncertainty? |
+| **Claims** | What has the study added to existing knowledge, and how well does the claimed contribution match its evidence? |
+| **Links** | Does the reasoning hold from evidence to individual claims, and from those claims to the overall conclusion? |
+
+These are open questions, not a checklist that must produce a criticism for every item. The scientific problem determines which biological, methodological, statistical or conceptual issues matter.
+
+Revision requests should identify the claim they are needed to support. Some problems require new evidence; others can be resolved by reanalysis, clearer reporting, or a defensible narrowing of the claim. Optional strengthening should remain optional throughout the review.
+
+## What you get
+
+All paths below are relative to a **private run directory outside this repository**.
+
+| Artifact | What you can use it for |
+| --- | --- |
+| `delivery/peer-review.md` | Read the final review and the author's revision priorities. |
+| `runs/map/map.md` | Revisit the study design, claim–evidence relationships and source locations. |
+| `literature/notes.md` | Reuse field background, relevant studies and their interpretive limits. |
+| `assessment.md` | Quickly find the contribution, central uncertainty and highest-value actions identified during reassessment. |
+| `review-dossier.md` | Read the map, literature notes, material judgment changes and limitations together. |
+| `runs/baseline/review.md` | Compare the independent initial review with the informed reassessment. |
+| `draft-review.md` | Inspect the preserved draft before host editing. |
+| `delivery/editing-notes.md` | See what the host changed, why, and what remains unresolved. |
+
+The assessment and dossier preserve the reassessment stage; subsequent corrections are recorded in the editing notes. The run also saves source inputs, selected visuals, prompts, responses, model settings, usage and provenance hashes. Hashes establish which files were used, not whether a scientific judgment is correct.
+
+## Quick start
+
+### Install in Codex
+
+For a new installation:
 
 ```bash
 git clone https://github.com/kohjy2000/biomedical-peer-review.git ~/.codex/skills/biomedical-peer-review
 ```
 
-Invoke explicitly with:
+If that directory already contains the skill, inspect your existing installation before replacing it.
+
+### Provide the review materials
+
+Supply the manuscript PDF, figures and relevant supplements, the target journal, and any required review template. Specify the literature cutoff and output language if you need something other than a current-date review in English.
+
+Then invoke the skill in your assistant session:
 
 ```text
-$biomedical-peer-review
+Use $biomedical-peer-review to evaluate the attached manuscript and supplements
+for [journal]. Explain what the study establishes, why it matters, and what the
+authors should improve first.
+
+Follow the full initial-review workflow. Research both the field background
+and directly relevant prior studies. Use my attached review template, preserve
+the intermediate materials, and save the checked final review and editing notes
+in [private output directory]. Proceed with this review.
 ```
 
-### Claude Code
+If your workspace requires a particular start-approval phrase, provide it explicitly. Independent contexts must receive the authorization they need; permission in the parent conversation should not simply be assumed to have transferred.
 
-Install globally for the current user:
+### Execution requirements
 
-```bash
-git clone https://github.com/kohjy2000/biomedical-peer-review.git ~/.claude/skills/biomedical-peer-review
-```
+The included [Codex CLI helper](scripts/review_run.py) requires an authenticated, compatible Codex CLI and Python with `pypdf`, `pypdfium2`, and Pillow. The host needs literature-search and PDF-inspection tools. It prepares the visual plan and verifies that images preserve all relevant content and orientation. Complete native figure images are preferred; vector content, tables and uncertain extraction use full-page rendering. Scanned manuscripts need checked OCR before use.
 
-Or install it in one project:
+Follow the [run guide](references/run.md) for preparation, the three generation calls, literature sealing, editing and finalization. The helper does not conduct literature searches or perform host editing itself. CLI isolation relies on version-specific flags; check compatibility rather than silently dropping isolation controls.
 
-```bash
-git submodule add https://github.com/kohjy2000/biomedical-peer-review.git .claude/skills/biomedical-peer-review
-```
+Use an available model configured for your environment and record it. All three calls in a run use the same model and reasoning settings. Other assistants can follow the workflow with equivalent independent contexts, but the supplied execution adapter is for Codex; cross-platform execution has not been validated here.
 
-Invoke explicitly with:
+### Templates and other review tasks
 
-```text
-/biomedical-peer-review
-```
+Pass a supplied template as UTF-8 text with `prepare --template TEMPLATE.md`. The bundled default currently uses explicit **Problem / Why it matters / Action** fields and conditional **Plan A / Plan B** labels. For a prose-style report, provide a template that calls for connected paragraphs instead. The selected template and editing guide are frozen and delivered to the final context.
 
-Both platforms can also select the skill automatically when the request matches its description.
+For a revised submission, provide the previous review, response letter, revised manuscript and editor instructions, and use the [revision-review guidance](references/revision-review.md). A revision review intentionally uses that history. A bounded question or draft edit uses only the requested scope.
 
-## Example request
+## What has been tested—and what remains uncertain
 
-```text
-Use the biomedical-peer-review skill to perform an independent initial peer review of the attached manuscript and its directly associated supplements. Build the claim-evidence map before drafting. Verify literature claims and citations, separate validity-critical from venue-critical issues, and complete the final-pruning stage. Save the concise reviewer-facing report as peer-review.md and the structured analytical record as review-dossier.md. Do not use prior reviews, response letters, later revisions, or the published version unless I explicitly provide them as part of the review task.
-```
+Local development has exercised the full workflow and compared intermediate materials, initial reviews, reassessments and edited reports. The runs showed useful evidence organization and more specific literature-informed judgments. They also showed that an initial review may already identify the central scientific concerns: more stages do not guarantee more discoveries or a better recommendation.
 
-For a revision, provide the prior reviewer report, point-by-point response, revised manuscript, updated figures or supplements, and editor instructions when available.
+The latest full-workflow trial used **GPT-5.6 Sol, high reasoning effort**, with three generation calls and no regeneration. It used a private runner adaptation to explicitly forward start authorization and a selected prose-style template. The bundled helper does not explicitly forward that start authorization, and its default template uses labeled fields. That trial therefore does not demonstrate identical behavior from an unmodified default installation.
 
-## Expected output
+Factual phrasing and revision demands still needed correction during host editing. For example, an unclear replication description should first prompt clarification of existing samples, rather than an unconditional demand for new experiments. Editing is a substantive part of the workflow, not just formatting.
 
-For a full initial or revision review, the skill produces two artifacts:
-
-1. **`peer-review.md`** — the concise author- and editor-facing report. Unless the journal requires a different format, it contains Overall Assessment, Major Comments, Recommended Revisions when useful, Minor Comments, Recommendation when requested, and Confidential Comment to Editor when useful.
-2. **`review-dossier.md`** — the confidential analytical record. It retains:
-   - target-journal and article-type calibration, with each requirement labeled as journal-stated, field standard, or reviewer calibration;
-   - the hierarchical H/M/E claim–evidence map;
-   - result-specific `E→M` judgments, individual-claim verdicts, claim-network gaps, alternatives, and generalization limits;
-   - literature consensus, conflicting evidence, controversy, experimental precedent, novelty, and a verified source register;
-   - the issue/action ledger and its connection to the final Major Comments;
-   - factual verification, recommendation rationale, and revision-resolution history.
-
-The dossier preserves structured judgments and supporting propositions, not private chain-of-thought or a raw search log. A bounded claim, literature, or draft audit returns only the relevant dossier sections.
-
-## Tool and model considerations
-
-The skill is instruction-based and does not bundle a PDF parser, literature database, or browser. Review quality therefore depends on the model and the document, search, and citation-verification capabilities available in the host environment.
-
-### Recommended model settings
-
-A full S0–S4 manuscript appraisal requires sustained scientific, methodological, and literature-grounded reasoning.
-
-- **Tested baseline:** GPT-5.6 Sol with high reasoning effort or above.
-- **Claude Code starting point:** a current Opus model with high effort or above. This is a recommended configuration and has not yet been established as an equivalent validated minimum.
-- Lower-cost or lower-effort settings may be suitable for bounded tasks such as S5 final pruning, formatting, or prose revision, but have not reliably met this project's quality bar for independent full scientific appraisal.
-
-These are quality recommendations rather than technical requirements. All AI-generated peer-review judgments require expert verification.
-
-- If a source cannot be accessed or verified, the skill should mark the affected judgment as not assessable rather than infer it.
-- A named experiment should be proposed only when its discriminating value is supported by domain knowledge or directly relevant literature.
-- Results can differ across models even when the same workflow is used. Report the platform, model, reasoning setting, and task type when submitting feedback.
+These are limited development observations, not an independent benchmark or a guarantee of completeness, cost efficiency, or superiority over an unassisted model. The [archived public-paper pilot](evals/2026-09-nature-pilot/README.md) documents an **earlier workflow**; its results should not be treated as measurements of this implementation. The human reviewer remains responsible for the submitted assessment.
 
 ## Confidentiality
 
-Peer-review materials may be confidential. Use this skill only in environments permitted by the journal, institution, and applicable agreements.
+Keep unpublished manuscripts, review reports, response letters, source excerpts and identifying metadata out of this public repository and its issues. Use generic topic queries for literature searches. Work only in an environment permitted for the manuscript and its review process.
 
-Treat `review-dossier.md` as confidential working material. It may contain more manuscript-specific detail than the submitted report and should not be sent to authors or editors unless explicitly intended.
+Working dossiers can contain more detail than the author-facing review; preserve them privately. The workflow does not submit a review, contact a journal, or publish manuscript material. Generation uses the configured model service in the review environment you authorize.
 
-Do not post unpublished manuscripts, manuscript excerpts, reviewer identities, response letters, submission identifiers, or other confidential material in GitHub Issues, Discussions, pull requests, or public test cases. Use public papers, preprints, synthetic examples, or de-identified behavioral descriptions when reporting problems.
+## Project guide
 
-The skill never authorizes submitting a review, contacting a journal, or transmitting manuscript material. Those actions require an explicit user request and an appropriate authorized tool.
+- [SKILL.md](SKILL.md): workflow and scientific judgment instructions.
+- [Run guide](references/run.md): source preparation, execution and saved outputs.
+- [Editing guide](references/final-pruning.md): resolve demands, preserve reasoning and check the final text.
+- [Default template](references/review-template.md): report layout when no other template is selected.
+- [Contributing](CONTRIBUTING.md): feedback on missed reasoning, factual errors, excessive demands or impractical output.
 
-## Contributing and feedback
+Older S0–S5 references remain available for targeted consultation; they are not additional default stages. The detailed scientific questions in `SKILL.md` are currently written in Korean; the English table above summarizes their meaning.
 
-Real-world feedback is welcome, especially on missed claim-evidence gaps, excessive experimental demands, weak literature positioning, incorrect severity, or unnecessary review length. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and use the structured Skill Feedback issue form.
-
-This project is not affiliated with or endorsed by OpenAI, Anthropic, or any journal.
-
-## License
-
-Released under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE). This project is not affiliated with or endorsed by OpenAI, Anthropic, or any journal.

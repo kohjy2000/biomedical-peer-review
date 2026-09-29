@@ -1,76 +1,21 @@
-# Final Pruning
+# Edit the complete review
 
-Use this reference only after S4 has produced a complete, source-verified author-facing draft. This pass edits prioritization and presentation; it does not repeat the scientific appraisal.
+The host applies this guide to the saved complete draft after the single scientific reassessment. Save the edited report and concise notes describing consequential edits, source checks and any unresolved limitation. This is performed by the current assistant with its normal file/source tools, without a separate default model invocation. Use the accepted assessment, initial review, manuscript/figures and verified literature already supplied. This reference edits the author's required work and its presentation; it adds no separate appraisal stage or mandatory ledger.
 
-## Inputs
+## Resolve the requested actions
 
-- the append-only candidate register and S3 issue ledger, including classification, consequence, evidence-request role, and fallback;
-- the verified S4 draft;
-- the journal's required fields;
-- the voice and length guidance in [style-profile.md](style-profile.md).
+For every requested action, decide whether it is necessary for claim validity or a journal-appropriate contribution, optional strengthening, a defensible claim-calibration alternative, or unnecessary. Make the status consistent wherever the action appears. Present the minimum sufficient route, including multiple components when they are inseparable; state dependencies instead of making supporting measurements independent demands.
 
-For a new session, read the saved review dossier and draft first. Re-open the manuscript only when pruning could change a factual statement, scientific judgment, evidence bar, or recommendation premise.
+Keep alternatives only when they resolve the same inference. Additional presence, association or plausibility measurements cannot replace causal, functional, predictive or generalization evidence when that is the question. Claim narrowing is acceptable only when it resolves the issue and leaves a contribution appropriate for the journal.
 
-## Action audit
+## Edit in the selected template
 
-Inventory every requested author action in the draft and assign one disposition internally:
+Order comments by scientific consequence and prerequisite actions. Merge only when the underlying problem, consequence and remedy are the same. Consolidate repeated requests in one place. Label optional work within the selected template; use a separate Recommended section only if that template permits it.
 
-- **Minimum required:** needed for the stated claim to be valid or for the present claim package to meet the venue bar;
-- **Recommended:** materially strengthens the work but is not necessary for validity or venue fit;
-- **Claim-calibration fallback:** narrows the claim and limitations enough to resolve the issue while preserving a defensible, venue-appropriate contribution;
-- **Remove:** duplicated, non-discriminating, merely interesting, or unsupported by the ledger.
+Retain each consequential issue's manuscript-specific reason, interpretive consequence and sufficient remedy. Preserve useful discriminating comparisons and alternatives from the initial review unless the evidence justifies changing them. Remove repeated background and peripheral requests. Keep the report as concise as these obligations allow, without a word or comment quota. Minor comments give the location and correction.
 
-A minimum evidentiary route may contain multiple inseparable components. Do not preserve extra analyses merely to make a comment appear comprehensive. When supporting characterization is needed only to interpret a chosen decisive test, state that dependency rather than presenting it as an independent requirement.
+## Check the actual final text
 
-## Coverage preservation
+Compare the final text with the accepted assessment and useful initial-review reasons/actions. Check that the study's contribution, central uncertainty and highest-value author actions remain explicit; each major comment explains its scientific consequence and remedy; no action is both required and optional; alternatives answer the same question; and the recommendation follows from the surviving issues and feasible remedies.
 
-Before pruning, compare the draft with both the candidate register and the S3 issue ledger. Every Validated or Weakened candidate must have an S3 disposition. Every Unresolved candidate must become a proportionate clarification or qualification request, or carry a one-line reason why it cannot affect the report. Every Validity-critical or Venue-critical I# must appear in the draft or carry a recorded drop reason in the dossier.
-
-Give explicit keep, move, or drop decisions, with a one-line reason, for any ledger issue whose removal could change claim validity, novelty, external validity, reproducibility, or venue fit. A drop that contradicts an S2 judgment must say why that judgment changed.
-
-Do not drop an issue in these classes to meet a length or comment-count preference; merge it only with a comment that shares the same underlying scientific defect, consequence, and remedy.
-
-Pruning may merge duplicate Minor Comments and remove low-value ones (typography, stylistic preference), but it must not remove a high-value Minor Comment from the Minor sweep (see workflow.md, S3) unless it is duplicated elsewhere in the report. Write each Minor Comment as one line: location, problem, requested correction.
-
-## Prune the draft
-
-For each Major Comment:
-
-1. retain one central claim-level defect and its consequence;
-2. retain the minimum evidentiary route that resolves that consequence;
-3. include a claim-calibration fallback only when it remains scientifically and editorially defensible;
-4. move Recommended actions to a separate section when the journal permits; otherwise label them clearly as non-essential. A Recommended action derived from a Validated or Weakened candidate may be omitted only with a one-line dossier reason;
-5. remove duplicated requests from other comments.
-
-Treat two routes as alternatives only when both resolve the same inference. Evidence of presence, association, plausibility, or additional characterization does not substitute for a causal, functional, predictive, or generalization test when that is the unresolved inference.
-
-Then compress the surrounding prose:
-
-- keep only the manuscript-specific fact and literature proposition needed to justify the judgment;
-- remove repeated background already stated in the Overall Assessment or another comment;
-- preserve one or two discriminating examples when they materially clarify an adequate response;
-- keep the report no longer than needed after all independent critical issues are preserved; there is no target number of Major Comments.
-
-After compression, re-check every quotation, claim verb, count, and scope statement that was shortened or merged against the source; compression must not broaden, narrow, or reattribute what the manuscript says.
-
-Prune only the reviewer-facing report. Preserve the dossier's claim map, field knowledge, resolved issues, and verification record, then update its final action dispositions and recommendation rationale.
-
-## Return rule
-
-If this pass reveals an untraced scientific issue, an invalid alternative, or a changed recommendation premise, return to the earliest affected stage, update the ledger, and redraft. Do not resolve a scientific disagreement by wording alone.
-
-## Delivery gate
-
-Deliver only when:
-
-- every Validity-critical or Venue-critical ledger issue appears in the report or has a recorded drop reason;
-- every high-value Minor sweep finding appears as a Minor Comment or is recorded as duplicated;
-- every author action has a disposition;
-- every Major Comment contains a central defect, consequence, and minimum required route;
-- Recommended strengthening is separated; any omitted action derived from a Validated or Weakened candidate has a recorded reason;
-- every Unresolved candidate has a clarification/qualification request or a recorded reason it cannot affect the report;
-- every stated alternative resolves the same inference as the direct route;
-- duplicated requests and non-essential background are removed;
-- the final recommendation still follows from the surviving issues and their remedy profile (see review-framework.md, section 7);
-- the dossier's final action dispositions and recommendation rationale are updated;
-- the final report is concise relative to the surviving issues and does not omit an independent critical issue for presentation reasons.
+Recheck shortened factual statements, claim verbs, counts, quotations and absence assertions against the supplied source, including figures when relevant. If editing reveals an invalid alternative or would change a scientific judgment, resolve it against that evidence. Preserve the raw material_changes field and record any subsequent consequential judgment changes with source reasons in editing-notes.md; do not turn internal process records into the author-facing review.
