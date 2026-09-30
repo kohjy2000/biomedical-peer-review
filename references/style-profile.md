@@ -12,7 +12,7 @@ The dominant recent structure is:
 4. Recommendation when requested;
 5. confidential editor comments when the decision needs strategic explanation.
 
-Use no default word-count target for an initial review. First preserve every distinct validity- or venue-critical issue that survives the structured appraisal; then make the report no longer than needed to communicate those issues and their proportionate remedies. Minor Comments should remain a compact one-line-per-item list. Keep the Overall Assessment compact, but do not let a presentation target determine which scientific issues survive.
+Aim for 600–1,000 words in the final initial-review report across Overall Assessment, Major Comments, Minor Comments and Recommendation, unless the user or journal specifies otherwise. This is a working target, not a hard cap: allow more space when independent consequential issues require it, and record the reason in editing-notes.md. Preserve the checked detailed full-review.md before compression. Minor Comments remain a compact one-line-per-item list; do not let the length target determine which scientific issues survive.
 
 ## Voice
 

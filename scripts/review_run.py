@@ -280,7 +280,7 @@ def run(args):
 
 def finalize(args):
     """Preserve an actually reviewed delivery; hashes record provenance, not scientific quality."""
-    sources = {'draft-review.md': args.draft, 'peer-review.md': args.review,
+    sources = {'draft-review.md': args.draft, 'full-review.md': args.full_review, 'peer-review.md': args.review,
                'editing-notes.md': args.notes, 'review-template.md': args.template}
     for name, path in sources.items():
         require(path.read_text().strip(), f'Empty delivery input: {name}')
@@ -320,7 +320,7 @@ def main():
     p = sub.add_parser('run'); p.add_argument('--run', type=Path, required=True)
     p.add_argument('--stage', choices=list(SCHEMAS), required=True); p.add_argument('--cli', default=shutil.which('codex'))
     p = sub.add_parser('finalize', help='After host editing and source/template comparison, preserve the checked report')
-    for name in ['draft', 'review', 'notes', 'template', 'out']:
+    for name in ['draft', 'full-review', 'review', 'notes', 'template', 'out']:
         p.add_argument('--'+name, type=Path, required=True)
     args = parser.parse_args()
     if hasattr(args, 'run'): args.run = args.run.resolve()

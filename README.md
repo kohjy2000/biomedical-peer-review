@@ -64,7 +64,8 @@ All paths below are relative to a **private run directory outside this repositor
 
 | Artifact | What you can use it for |
 | --- | --- |
-| `delivery/peer-review.md` | Read the final review and the author's revision priorities. |
+| `delivery/peer-review.md` | Read the concise final review and the author's revision priorities. |
+| `delivery/full-review.md` | Revisit the source-checked detailed review before compression. |
 | `runs/map/map.md` | Revisit the study design, claim–evidence relationships and source locations. |
 | `literature/notes.md` | Reuse field background, relevant studies and their interpretive limits. |
 | `assessment.md` | Quickly find the contribution, central uncertainty and highest-value actions identified during reassessment. |
@@ -116,7 +117,7 @@ Use an available model configured for your environment and record it. All three 
 
 ### Templates and other review tasks
 
-Pass a supplied template as UTF-8 text with `prepare --template TEMPLATE.md`. The bundled default currently uses explicit **Problem / Why it matters / Action** fields and conditional **Plan A / Plan B** labels. For a prose-style report, provide a template that calls for connected paragraphs instead. The selected template and editing guide are frozen and delivered to the final context.
+Pass a supplied template as UTF-8 text with `prepare --template TEMPLATE.md`. The bundled default uses connected paragraphs under Overall Assessment, Major Comments, Minor Comments and Recommendation when requested. The final report targets 600–1,000 words, with exceptions when independent consequential issues need more space. The checked detailed review is preserved before compression; important reasons, sufficient remedies and valid alternatives must survive. User/journal instructions override this default. The selected template and editing guide are frozen and delivered to the final context.
 
 For a revised submission, provide the previous review, response letter, revised manuscript and editor instructions, and use the [revision-review guidance](references/revision-review.md). A revision review intentionally uses that history. A bounded question or draft edit uses only the requested scope.
 
@@ -124,7 +125,7 @@ For a revised submission, provide the previous review, response letter, revised 
 
 Local development has exercised the full workflow and compared intermediate materials, initial reviews, reassessments and edited reports. The runs showed useful evidence organization and more specific literature-informed judgments. They also showed that an initial review may already identify the central scientific concerns: more stages do not guarantee more discoveries or a better recommendation.
 
-The latest full-workflow trial used **GPT-5.6 Sol, high reasoning effort**, with three generation calls and no regeneration. It used a private runner adaptation to explicitly forward start authorization and a selected prose-style template. The bundled helper does not explicitly forward that start authorization, and its default template uses labeled fields. That trial therefore does not demonstrate identical behavior from an unmodified default installation.
+A full-workflow development trial used **GPT-5.6 Sol, high reasoning effort**, with three generation calls and no regeneration. It used a private runner adaptation to explicitly forward start authorization and a selected prose-style template. The bundled helper does not explicitly forward that start authorization, and that trial used a custom prose template; the default has since been changed to connected prose. That trial therefore does not demonstrate identical behavior from an unmodified default installation.
 
 Factual phrasing and revision demands still needed correction during host editing. For example, an unclear replication description should first prompt clarification of existing samples, rather than an unconditional demand for new experiments. Editing is a substantive part of the workflow, not just formatting.
 
