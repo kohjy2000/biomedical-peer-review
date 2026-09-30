@@ -88,6 +88,12 @@ git clone https://github.com/kohjy2000/biomedical-peer-review.git ~/.codex/skill
 
 If that directory already contains the skill, inspect your existing installation before replacing it.
 
+### Use with Claude
+
+The same review workflow has also been run with Claude Code. Make this repository available to Claude and ask it to follow [SKILL.md](SKILL.md), keeping the initial review and evidence preparation in separate contexts before the single reassessment. Literature research and final editing remain host tasks.
+
+The Claude tests used a local Claude CLI adapter to run the generation stages. That adapter is not included in this repository; the bundled runner currently invokes Codex. Using Claude therefore requires equivalent context separation through your host or a compatible adapter, rather than running the Codex command unchanged.
+
 ### Provide the review materials
 
 Supply the manuscript PDF, figures and relevant supplements, the target journal, and any required review template. Specify the literature cutoff and output language if you need something other than a current-date review in English.
@@ -109,11 +115,13 @@ If your workspace requires a particular start-approval phrase, provide it explic
 
 ### Execution requirements
 
-The included [Codex CLI helper](scripts/review_run.py) requires an authenticated, compatible Codex CLI and Python with `pypdf`, `pypdfium2`, and Pillow. The host needs literature-search and PDF-inspection tools. It prepares the visual plan and verifies that images preserve all relevant content and orientation. Complete native figure images are preferred; vector content, tables and uncertain extraction use full-page rendering. Scanned manuscripts need checked OCR before use.
+**The workflow has been exercised with both Codex and Claude Code.** Both need access to the manuscript and figures, literature-search and PDF-inspection tools, and separate contexts for the initial review, evidence map and informed reassessment. The host prepares and checks the evidence, researches the literature, then edits and finalizes the saved draft.
 
-Follow the [run guide](references/run.md) for preparation, the three generation calls, literature sealing, editing and finalization. The helper does not conduct literature searches or perform host editing itself. CLI isolation relies on version-specific flags; check compatibility rather than silently dropping isolation controls.
+The bundled [Python helper](scripts/review_run.py) handles preparation, provenance and finalization; its generation commands currently target an authenticated, compatible **Codex CLI**. PDF preparation requires Python with `pypdf`, `pypdfium2`, and Pillow. The **Claude Code** trials used a local adapter that translated the generation calls to the Claude CLI while preserving the workflow; that adapter is not bundled here.
 
-Use an available model configured for your environment and record it. All three calls in a run use the same model and reasoning settings. Other assistants can follow the workflow with equivalent independent contexts, but the supplied execution adapter is for Codex; cross-platform execution has not been validated here.
+Follow the [run guide](references/run.md) for preparation, the three generation stages, literature sealing, editing and finalization. Complete native figure images are preferred; vector content, tables and uncertain extraction use full-page rendering. Scanned manuscripts need checked OCR. The helper does not perform literature research or host editing. Context isolation and structured-output handling are host-specific; record the actual execution path and any limitations.
+
+Use an available model configured for your host and record it. Keep the model and reasoning settings consistent across the three generation stages unless a change is explicitly chosen and documented.
 
 ### Templates and other review tasks
 
@@ -125,7 +133,13 @@ For a revised submission, provide the previous review, response letter, revised 
 
 Local development has exercised the full workflow and compared intermediate materials, initial reviews, reassessments and edited reports. The runs showed useful evidence organization and more specific literature-informed judgments. They also showed that an initial review may already identify the central scientific concerns: more stages do not guarantee more discoveries or a better recommendation.
 
-A full-workflow development trial used **GPT-5.6 Sol, high reasoning effort**, with three generation calls and no regeneration. It used a private runner adaptation to explicitly forward start authorization and a selected prose-style template. The bundled helper does not explicitly forward that start authorization, and that trial used a custom prose template; the default has since been changed to connected prose. That trial therefore does not demonstrate identical behavior from an unmodified default installation.
+Development trials include:
+
+- **Codex / GPT-5.6 Sol, high reasoning effort:** a full review with three generation calls, followed by host editing. It used a local adaptation to forward start authorization and a selected prose template. The default template now also uses connected prose.
+- **Claude Code / Opus 5.5, high effort:** three public manuscripts completed initial review, evidence mapping, literature preparation, reassessment, host editing and finalization using the skill at `69b1e7a` and a local Claude CLI adapter. A later trial reran reassessment on the same prepared evidence with the two judgment-guidance additions at `119fc00`.
+- **Concise delivery:** the later Claude-generated drafts were edited by a Codex host to approximately 1,000 words each, preserving the checked detailed versions separately. This verifies an application of the editing workflow; it does not establish that a fresh Claude run will automatically produce the same length and quality.
+
+These trials establish that the workflow can be used with both hosts. They do not establish equal performance, identical execution behavior, or a ready-to-run Claude adapter in this repository. The public-manuscript comparisons are also limited by single runs, differing review lengths and scoring conditions, possible prior exposure, and publication-status text in one input.
 
 Factual phrasing and revision demands still needed correction during host editing. For example, an unclear replication description should first prompt clarification of existing samples, rather than an unconditional demand for new experiments. Editing is a substantive part of the workflow, not just formatting.
 
