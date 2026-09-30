@@ -58,6 +58,8 @@ Avoid upscaling raster figures into oversized page screenshots for every stage. 
 
 수정 요구는 중요성·예상 이득·실행 부담을 고려해 우선순위를 정한다. **어떤 결론을 유지하기 위해 필요한 수정인지 명확히 하고**, 필수 수정·문제를 해결할 수 있는 대안·선택적 보강을 구분한다. 주장 조정으로 해결되는 문제와, 조정해도 남는 신뢰성 문제를 구분한다.
 
+근거지도와 문헌에서 확인한 중요한 사실이 핵심 주장을 뒷받침하는지, 제한하는지 판단한다. 불확실성이 남아도 결론을 유지할 수 있다고 판단한다면 그 근거를 설명하고, 부족하다면 필요한 검증이나 주장 조정을 제시한다.
+
 이 내용은 내부 판단 지침이며, 최종 보고서는 기존 사용자 템플릿을 따른다.
 
 Preserve valid substantive reasons and actions from the initial review. Change or withdraw them when source evidence warrants it. Reopen the relevant original evidence when changing a factual judgment, including the figure for a visual claim.

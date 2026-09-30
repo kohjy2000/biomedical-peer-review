@@ -6,6 +6,8 @@ The host applies this guide to the saved complete draft after the single scienti
 
 For every requested action, decide whether it is necessary for claim validity or a journal-appropriate contribution, optional strengthening, a defensible claim-calibration alternative, or unnecessary. Make the status consistent wherever the action appears. Present the minimum sufficient route, including multiple components when they are inseparable; state dependencies instead of making supporting measurements independent demands.
 
+핵심 결론을 위해 해결해야 한다고 지적한 문제에는, 이를 해결할 수정 요구가 제시되어 있는지 확인한다. 특정 분석을 선택 사항으로 둔다면 기존 근거나 다른 수정으로 문제가 해결되는지 확인한다.
+
 Keep alternatives only when they resolve the same inference. Additional presence, association or plausibility measurements cannot replace causal, functional, predictive or generalization evidence when that is the question. Claim narrowing is acceptable only when it resolves the issue and leaves a contribution appropriate for the journal.
 
 ## Edit in the selected template
