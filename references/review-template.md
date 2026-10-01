@@ -1,6 +1,6 @@
 # Author-facing review template
 
-Use the user or journal's supplied template when present. Otherwise use the connected-prose structure below. Keep detailed literature discussion and supporting analyses in the working dossier and checked full-review.md. Preserve the complete draft and checked detailed review before shortening the submission copy.
+Use the format specified or already agreed by the user. When no user format is specified, use a supplied journal report template; otherwise use the connected-prose structure below. Journal web-entry questions alone do not replace an agreed author-facing report format; keep their answers in a separate submission worksheet. Keep detailed literature discussion and supporting analyses in the working dossier and checked full-review.md. Preserve the complete draft and checked detailed review before shortening the submission copy.
 
 For the final report, aim for 600–1,000 words across Overall Assessment, Major Comments, Minor Comments and Recommendation. This is a working target, not a hard limit or a comment quota. Exceed it when independent consequential issues cannot be explained adequately within it; record the reason in editing-notes.md. The detailed draft/full review has no word target. User or journal requirements override this default.
 

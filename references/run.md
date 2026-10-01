@@ -29,7 +29,7 @@ Numbers are 1-based PDF indices. An entry without `images` renders the full page
 PYTHON review_run.py prepare --pdf MANUSCRIPT.pdf --visual-plan visual-plan.json --run PRIVATE_RUN --model MODEL --effort high --journal JOURNAL --cutoff YYYY-MM-DD
 ```
 
-When the user or journal supplies an output template, prepare its submission instructions as UTF-8 text, preserve the original, and pass `--template TEMPLATE.md`. Preserve the supplied fields and order; disclose any extraction from Word/PDF. Otherwise the bundled template is used. Preparation freezes the template and editing guide alongside the skill; only the final context receives them.
+Select the output format specified or already agreed by the user. When none is specified, use a supplied journal report template; otherwise use the bundled default. Journal web-entry questions alone do not replace an agreed author-facing format; save their answers in a separate submission worksheet. For a supplied report template, pass `--template TEMPLATE.md --template-original ORIGINAL --template-basis "Actual source and instruction establishing this format"`. The selected template is UTF-8 text; preserve the original Word/PDF/text and disclose any extraction. Preserve the supplied fields and order. Add `--recommendation` when a recommendation is requested. Preparation freezes the original, selection record, template and editing guide alongside the skill; only the final context receives the writing resources.
 
 Choose the current date for ordinary literature review, or the requested historical cutoff; record why. `--language` defaults to English. Inspect the saved native/fallback images against the source pages and confirm text extraction before any model call. If preparation is wrong, fix the plan and use a new run directory; do not modify frozen inputs. Model/effort remain the same for all three calls unless a new run is explicitly chosen.
 
@@ -77,11 +77,27 @@ The current host assistant now reads the saved draft and applies the frozen fina
 Run the local finalization command only after that work:
 
 ```text
-PYTHON review_run.py finalize --draft PRIVATE_RUN/draft-review.md --full-review PRIVATE_RUN/full-review.md --review PRIVATE_RUN/edited-review.md --notes PRIVATE_RUN/editing-notes.md --template PRIVATE_RUN/provenance/review-template.md --out PRIVATE_RUN/delivery
+PYTHON review_run.py finalize --manifest PRIVATE_RUN/manifest.json --draft PRIVATE_RUN/draft-review.md --full-review PRIVATE_RUN/full-review.md --review PRIVATE_RUN/edited-review.md --notes PRIVATE_RUN/editing-notes.md --template PRIVATE_RUN/provenance/review-template.md --out PRIVATE_RUN/delivery
 ```
 
-The command requires and preserves the raw draft, checked detailed `full-review.md`, concise `peer-review.md`, notes and selected template with provenance hashes. Existing finalized deliveries remain untouched; use a new output directory when adding a detailed version to an older delivery. It does not call a model or judge scientific quality. The host performs that judgment before running it; a completion record alone is not evidence of a good review. Report the final deliverable and any unresolved limitation plainly. Finalization also works on an existing saved draft from another compatible host; record its actual origin in the editing notes rather than claiming a fresh review.
+The command checks the pre-writing manifest and preserved original/selection record, rejects a changed template, and checks the bundled default's required sections and order before creating a delivery. Recommendation is required only when recorded as requested; Comment to Editor is optional. Supplied formats still need the host's actual comparison with their original; the command reports that they were not automatically assessed. File integrity, template structure and scientific review are separate results. These checks do not impose a word count or assess scientific quality.
+
+It preserves the raw draft, checked detailed `full-review.md`, concise `peer-review.md`, notes, template and template provenance with hashes. Existing finalized deliveries remain untouched; use a new output directory for a correction. It does not call a model. The host performs the scientific and prose checks before running it; a completion record alone is not evidence of a good review. For an existing draft or another compatible host, preserve a template record before editing with template_source, template_sha256, template_supplied, template_basis, recommendation_requested and original (source/file/sha256). A manifest names template_file and template_record and hashes both plus the original in files, relative to its directory. Pass that manifest to finalize and record the actual draft origin in editing notes; do not claim fresh generation. Keep old frozen runs on their original runner; corrections using a new template get a separate record, manifest and delivery without rerunning generation.
 
 Keep independent-review generation at three calls. Source/template editing is an actual host task after the draft is available, not a new scientific audit or a hidden extra paid CLI call. Record this host work separately from generation usage, which does not measure its cost.
+
+## 6. Put useful materials beside the final review
+
+After finalization, gather the checked report and existing working materials in the user's private working/output directory, outside this repository. Select the actual latest checked delivery explicitly; an original run's older `delivery/` may have been superseded by later host corrections.
+
+```text
+PYTHON review_run.py publish --run PRIVATE_RUN --delivery CHECKED_DELIVERY --out WORKING_DIRECTORY
+```
+
+This creates `peer-review.md` and `Review_materials/README.md`, with readable copies of `claim-structure.md`, `literature.md`, `assessment.md`, `full-review.md` and `editing-notes.md`. The README links each file and the final report in reading order, distinguishes neutral preparation and reassessment from later checked judgments, and links copy/source hashes in `provenance.json`. Original runs, drafts, logs and sealed notes remain unchanged.
+
+Use `--review-name Review_comments.md` to keep the user's final Markdown filename. Add `--word-review CHECKED_REPORT.docx` when an existing host-checked Word report should be copied and linked without editing it. Add `--literature-corrections CORRECTIONS.md` when later host corrections must be shown beside the frozen literature notes. These copies do not imply a new generation, source search or Word validation.
+
+Publication verifies run completions, frozen evidence/literature, the selected delivery/template and the generated draft's identity. It can read older frozen runs with the current helper without rerunning generation. Existing matching final files are preserved; conflicting files or an incomplete bundle are rejected before publication. Repeating an unchanged completed publication verifies and preserves it. For changed inputs, preserve the earlier bundle and publish to a new working/output directory, then point the user to the current one. Check that the README links resolve and copies match their sources; include the working-directory README link in the completion reply. Other compatible hosts should deliver the same accessible layout from their recorded artifacts without claiming Codex execution.
 
 A completed command validates its saved files and exits without another call. An incomplete or failed attempt remains on disk and blocks overwrite: inspect its logs, correct the operational cause, and explicitly document any new run. Do not claim success from an exit code alone. No external submission is performed.

@@ -60,21 +60,19 @@ Revision requests should identify the claim they are needed to support. Some pro
 
 ## What you get
 
-All paths below are relative to a **private run directory outside this repository**.
+Open `Review_materials/README.md` in your **private working/output directory**, beside the final review. It links the report and useful intermediate materials in reading order, and identifies which stage each file represents. You do not need to navigate the internal run folders.
 
 | Artifact | What you can use it for |
 | --- | --- |
-| `delivery/peer-review.md` | Read the concise final review and the author's revision priorities. |
-| `delivery/full-review.md` | Revisit the source-checked detailed review before compression. |
-| `runs/map/map.md` | Revisit the study design, claim–evidence relationships and source locations. |
-| `literature/notes.md` | Reuse field background, relevant studies and their interpretive limits. |
-| `assessment.md` | Quickly find the contribution, central uncertainty and highest-value actions identified during reassessment. |
-| `review-dossier.md` | Read the map, literature notes, material judgment changes and limitations together. |
-| `runs/baseline/review.md` | Compare the independent initial review with the informed reassessment. |
-| `draft-review.md` | Inspect the preserved draft before host editing. |
-| `delivery/editing-notes.md` | See what the host changed, why, and what remains unresolved. |
+| `peer-review.md` (or your chosen report filename) | Read the concise final review and the author's revision priorities. |
+| `Review_materials/README.md` | Start here: report links, reading order and stage/status explanations. |
+| `Review_materials/claim-structure.md` | Revisit the study design, claim–evidence relationships and source locations from neutral preparation. |
+| `Review_materials/literature.md` | Reuse field background, relevant studies and their access/interpretive limits. |
+| `Review_materials/assessment.md` | Find the contribution, central uncertainty and priorities identified during reassessment. |
+| `Review_materials/full-review.md` | Revisit the checked detailed review from the same selected delivery as the final report. |
+| `Review_materials/editing-notes.md` | See consequential host corrections and remaining limitations from that delivery. |
 
-The assessment and dossier preserve the reassessment stage; subsequent corrections are recorded in the editing notes. The run also saves source inputs, selected visuals, prompts, responses, model settings, usage and provenance hashes. Hashes establish which files were used, not whether a scientific judgment is correct.
+The map, literature and assessment preserve their original stages; later host judgments are in the final/detailed reviews and editing notes. Recorded later literature corrections can be included as `Review_materials/literature-corrections.md`, and an existing checked Word report can be copied and linked alongside the Markdown report. Original initial reviews, generated drafts, dossiers, evidence, prompts, responses, model settings and usage remain in the private run directory. Publication reuses those artifacts without another generation call or search. Hashes establish which files were used, not whether a scientific judgment is correct.
 
 ## Quick start
 
@@ -107,8 +105,9 @@ authors should improve first.
 
 Follow the full initial-review workflow. Research both the field background
 and directly relevant prior studies. Use my attached review template, preserve
-the intermediate materials, and save the checked final review and editing notes
-in [private output directory]. Proceed with this review.
+the intermediate materials, and save the checked final review beside a
+Review_materials folder with a linked README in [private working/output directory].
+Proceed with this review.
 ```
 
 If your workspace requires a particular start-approval phrase, provide it explicitly. Independent contexts must receive the authorization they need; permission in the parent conversation should not simply be assumed to have transferred.
@@ -119,13 +118,13 @@ If your workspace requires a particular start-approval phrase, provide it explic
 
 The bundled [Python helper](scripts/review_run.py) handles preparation, provenance and finalization; its generation commands currently target an authenticated, compatible **Codex CLI**. PDF preparation requires Python with `pypdf`, `pypdfium2`, and Pillow. The **Claude Code** trials used a local adapter that translated the generation calls to the Claude CLI while preserving the workflow; that adapter is not bundled here.
 
-Follow the [run guide](references/run.md) for preparation, the three generation stages, literature sealing, editing and finalization. Complete native figure images are preferred; vector content, tables and uncertain extraction use full-page rendering. Scanned manuscripts need checked OCR. The helper does not perform literature research or host editing. Context isolation and structured-output handling are host-specific; record the actual execution path and any limitations.
+Follow the [run guide](references/run.md) for preparation, the three generation stages, literature sealing, editing, finalization and working-directory publication. Complete native figure images are preferred; vector content, tables and uncertain extraction use full-page rendering. Scanned manuscripts need checked OCR. The helper does not perform literature research or host editing. Context isolation and structured-output handling are host-specific; record the actual execution path and any limitations.
 
 Use an available model configured for your host and record it. Keep the model and reasoning settings consistent across the three generation stages unless a change is explicitly chosen and documented.
 
 ### Templates and other review tasks
 
-Pass a supplied template as UTF-8 text with `prepare --template TEMPLATE.md`. The bundled default uses connected paragraphs under Overall Assessment, Major Comments, Minor Comments and Recommendation when requested. The final report targets 600–1,000 words, with exceptions when independent consequential issues need more space. The checked detailed review is preserved before compression; important reasons, sufficient remedies and valid alternatives must survive. User/journal instructions override this default. The selected template and editing guide are frozen and delivered to the final context.
+Keep the user's specified or already agreed report format; journal web-entry questions alone do not replace it. Pass a supplied report template as UTF-8 text with `prepare --template TEMPLATE.md --template-original ORIGINAL --template-basis "Actual source/instruction"`; add `--recommendation` when requested. The bundled default uses connected paragraphs under Overall Assessment, Major Comments, Minor Comments and Recommendation when requested. The final report targets 600–1,000 words, with exceptions when independent consequential issues need more space. The checked detailed review is preserved before compression; important reasons, sufficient remedies and valid alternatives must survive. The selected template and editing guide are frozen and delivered to the final context. Finalization requires the prepared `--manifest`; it checks template provenance and default section order, reporting these separately from scientific review. Supplied formats still require comparison with their original by the host. See the [run guide](references/run.md).
 
 For a revised submission, provide the previous review, response letter, revised manuscript and editor instructions, and use the [revision-review guidance](references/revision-review.md). A revision review intentionally uses that history. A bounded question or draft edit uses only the requested scope.
 

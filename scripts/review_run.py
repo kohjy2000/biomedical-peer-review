@@ -5,9 +5,11 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import tempfile
+from urllib.parse import quote
 
 SKILL = Path(__file__).resolve().parents[1]
 
@@ -73,6 +75,11 @@ def prepare(args):
     from PIL import Image
     template = args.template or SKILL / 'references/review-template.md'
     require(template.read_text().strip(), 'Empty output template')
+    if args.template:
+        require(args.template_original and args.template_basis and args.template_basis.strip(),
+                'Supplied template requires --template-original and --template-basis; follow the user-agreed format')
+    original = args.template_original if args.template else template
+    require(original.is_file() and original.stat().st_size > 0, 'Missing original template')
     plan = read(args.visual_plan)
     require(isinstance(plan.get('coverage_note'), str) and plan['coverage_note'].strip(),
             'Visual plan needs a coverage_note documenting inspection of all PDFs.')
@@ -84,6 +91,15 @@ def prepare(args):
     shutil.copyfile(__file__, root / 'provenance/review_run.py')
     shutil.copyfile(SKILL / 'SKILL.md', root / 'provenance/SKILL.md')
     shutil.copyfile(template, root / 'provenance/review-template.md')
+    original_name = 'template-original' + original.suffix if args.template else 'review-template.md'
+    if args.template:
+        shutil.copyfile(original, root / 'provenance' / original_name)
+    dump(root / 'provenance/template-record.json', {
+        'template_source': str(template.resolve()), 'template_sha256': sha(template),
+        'template_supplied': args.template is not None,
+        'template_basis': args.template_basis or 'Bundled default; no overriding user/journal report format selected.',
+        'recommendation_requested': args.recommendation,
+        'original': {'source': str(original.resolve()), 'file': original_name, 'sha256': sha(original)}})
     shutil.copyfile(SKILL / 'references/final-pruning.md', root / 'provenance/final-pruning.md')
     dump(root / 'source/visual-plan.json', plan)
     texts, documents, images = [], [], []
@@ -140,6 +156,7 @@ def prepare(args):
     dump(root/'manifest.json', {'created': stamp(), 'model': args.model, 'effort': args.effort,
          'journal': args.journal, 'cutoff': args.cutoff, 'language': args.language,
          'template_source': str(template.resolve()), 'template_supplied': args.template is not None,
+         'template_file': 'provenance/review-template.md', 'template_record': 'provenance/template-record.json',
          'documents': documents, 'images': images, 'files': files})
     print(f'Prepared {len(documents)} document(s), {len(images)} images. Inspect before running.')
 
@@ -278,12 +295,59 @@ def run(args):
         print('Draft saved. Host editing and source/template checks are still required before finalize.')
 
 
+def check_delivery_template(manifest_path, template, review):
+    root, meta = manifest_path.parent, read(manifest_path)
+    files = meta['files']
+    require(meta.get('template_file') in files and meta.get('template_record') in files,
+            'Manifest must preserve the selected template and its pre-writing record')
+    check_files(root, files)
+    record_path = root / meta['template_record']
+    record = read(record_path)
+    require(sha(template) == files[meta['template_file']] == record['template_sha256'],
+            'Final template differs from the prepared template')
+    require(isinstance(record.get('template_supplied'), bool) and record.get('template_basis', '').strip(),
+            'Missing template selection basis')
+    require(isinstance(record.get('recommendation_requested'), bool), 'Missing recommendation requirement')
+    original = record['original']
+    require(original.get('source') and Path(original['file']).name == original['file'], 'Missing original template source')
+    original_path = record_path.parent / original['file']
+    original_key = str(original_path.relative_to(root))
+    require(original_key in files and sha(original_path) == files[original_key] == original['sha256'],
+            'Original template differs from the preserved source')
+    structure = 'Host comparison required for supplied templates; not automatically assessed.'
+    if not record['template_supplied']:
+        required = ['Overall Assessment', 'Major Comments', 'Minor Comments']
+        allowed = required + ['Recommendation', 'Comment to Editor']
+        text = review.read_text()
+        sections = list(re.finditer(r'^##[ \t]+(.+?)[ \t]*$', text, re.M))
+        headings = [m[1] for m in sections]
+        require(headings[:3] == required and all(h in allowed for h in headings)
+                and len(headings) == len(set(headings)), 'Report does not follow the agreed default sections')
+        require([allowed.index(h) for h in headings] == sorted(allowed.index(h) for h in headings),
+                'Default report sections are out of order')
+        require(not record['recommendation_requested'] or 'Recommendation' in headings,
+                'Requested Recommendation section is missing')
+        for i, section in enumerate(sections):
+            end = sections[i+1].start() if i+1 < len(sections) else len(text)
+            require(text[section.end():end].strip(), f'Empty report section: {section[1]}')
+        structure = 'Passed default section presence/order; scientific content and prose still require host review.'
+    return {'template_integrity': 'passed', 'original_template_integrity': 'passed',
+            'template_structure': structure}
+
+
 def finalize(args):
     """Preserve an actually reviewed delivery; hashes record provenance, not scientific quality."""
     sources = {'draft-review.md': args.draft, 'full-review.md': args.full_review, 'peer-review.md': args.review,
-               'editing-notes.md': args.notes, 'review-template.md': args.template}
+                'editing-notes.md': args.notes, 'review-template.md': args.template}
     for name, path in sources.items():
         require(path.read_text().strip(), f'Empty delivery input: {name}')
+    template_check = check_delivery_template(args.manifest, args.template, args.review)
+    meta = read(args.manifest)
+    record_path = args.manifest.parent / meta['template_record']
+    sources.update({'template-manifest.json': args.manifest, 'template-record.json': record_path})
+    original_file = read(record_path)['original']['file']
+    if original_file != 'review-template.md':
+        sources[original_file] = record_path.parent / original_file
     inputs = {name: {'path': str(path.resolve()), 'sha256': sha(path)} for name, path in sources.items()}
     out = args.out.resolve()
     if (out/'finalization.json').exists():
@@ -299,8 +363,100 @@ def finalize(args):
         require(sha(out/name) == inputs[name]['sha256'] == sha(path), f'Changed delivery input: {name}')
     dump(out/'finalization.json', {'created': stamp(), 'inputs': inputs,
          'files': {name: sha(out/name) for name in sources},
-         'verification': 'Host source/template review documented in editing-notes.md; not automatically assessed by this command.'})
+         'verification': {'file_integrity': 'passed', **template_check,
+                          'scientific_content': 'Host review documented in editing-notes.md; not automatically assessed.'}})
     print(f'Finalized {out}/peer-review.md; no model call')
+
+
+def publish(args):
+    """Place the checked report and useful existing materials in the working directory."""
+    root, delivery, out = args.run.resolve(), args.delivery.resolve(), args.out.resolve()
+    require(root != out and root not in out.parents and delivery != out and delivery not in out.parents,
+            'Publish beside the private run/delivery, not inside either preserved directory')
+    require(SKILL != out and SKILL not in out.parents, 'Publish outside the skill repository')
+    require(Path(args.review_name).name == args.review_name and Path(args.review_name).suffix == '.md',
+            '--review-name must be a Markdown filename, without directories')
+    # Publication reads frozen runs without requiring the current runner to match the old one.
+    check_files(root, read(root/'manifest.json')['files'])
+    for stage in SCHEMAS:
+        completed(root, stage)
+    final_files = read(root/'runs/final/complete.json')['deliverables']
+    require(all(name in final_files for name in ['draft-review.md', 'assessment.md']),
+            'Run completion must preserve the draft and assessment')
+    preparation = read(root/'literature/seal.json')
+    require(preparation['manifest_sha256'] == sha(root/'manifest.json')
+            and preparation['map_sha256'] == sha(root/'runs/map/response.json'), 'Literature provenance mismatch')
+    check_files(root/'literature', preparation['files'])
+    require('notes.md' in preparation['files'], 'Literature seal must preserve notes')
+    saved = read(delivery/'finalization.json')
+    check_files(delivery, saved['files'])
+    require(saved['files']['draft-review.md'] == sha(root/'draft-review.md'),
+            'Selected delivery belongs to a different generated draft')
+    template_manifest = Path(saved['inputs']['template-manifest.json']['path'])
+    require(sha(template_manifest) == saved['files']['template-manifest.json'], 'Original template manifest changed')
+    check_delivery_template(template_manifest, delivery/'review-template.md', delivery/'peer-review.md')
+    sources = {
+        args.review_name: delivery/'peer-review.md',
+        'Review_materials/claim-structure.md': root/'runs/map/map.md',
+        'Review_materials/literature.md': root/'literature/notes.md',
+        'Review_materials/assessment.md': root/'assessment.md',
+        'Review_materials/full-review.md': delivery/'full-review.md',
+        'Review_materials/editing-notes.md': delivery/'editing-notes.md',
+    }
+    for name, path in sources.items():
+        require(path.read_text().strip(), f'Empty publication input: {name}')
+    word_link = ''
+    if args.word_review:
+        require(args.word_review.suffix.lower() == '.docx' and args.word_review.stat().st_size > 0,
+                '--word-review must be the existing host-checked Word report')
+        sources[args.word_review.name] = args.word_review
+        word_link = f' / [Word](../{quote(args.word_review.name)})'
+    correction_row = ''
+    if args.literature_corrections:
+        require(args.literature_corrections.read_text().strip(), 'Empty literature corrections')
+        sources['Review_materials/literature-corrections.md'] = args.literature_corrections
+        correction_row = '| [Literature corrections](literature-corrections.md) | Later host corrections; read alongside the frozen notes. |\n'
+    index = f'''# Review materials
+
+Start with the [final review](../{quote(args.review_name)}){word_link}. These materials are saved beside it so you can check the review against the study and literature.
+
+| Read in order | Purpose and stage |
+| --- | --- |
+| 1. [Claim structure](claim-structure.md) | Neutral preparation: claims, comparisons and evidence locations; not an adjudicated review. |
+| 2. [Literature](literature.md) | Source-linked research notes, actual access and limitations, frozen before reassessment. |
+{correction_row}| 3. [Assessment](assessment.md) | Contribution, central uncertainty and priorities at reassessment; later host corrections are in the detailed review and editing notes. |
+| 4. [Full review](full-review.md) | Checked detailed version from the same selected delivery as the final review. |
+| 5. [Editing notes](editing-notes.md) | Material changes, source reasons and remaining limitations from that delivery. |
+
+The map, literature and assessment preserve their original stages. Use the final and detailed reviews with editing notes for the latest judgments. File hashes in [provenance.json](provenance.json) identify sources and copies; they do not certify scientific correctness. Original drafts, responses, logs and evidence remain in the private run. No new model call or literature search is performed by publication.
+'''
+    inputs = {name: {'path': str(path.resolve()), 'sha256': sha(path)} for name, path in sources.items()}
+    for label, path in [('run-manifest', root/'manifest.json'), ('delivery-record', delivery/'finalization.json')]:
+        inputs[label] = {'path': str(path), 'sha256': sha(path)}
+    materials = out/'Review_materials'
+    if (materials/'provenance.json').exists():
+        previous = read(materials/'provenance.json')
+        require(previous['inputs'] == inputs, 'Published inputs differ; preserve this bundle and use a new output directory')
+        check_files(out, previous['files'])
+        print(f'Already published: {materials}/README.md; no model call')
+        return
+    require(not materials.exists(), 'Review_materials already exists without a publication record; inspect before publishing')
+    for name, path in sources.items():
+        target = out/name
+        require(not target.exists() or (target.is_file() and sha(target) == inputs[name]['sha256']),
+                f'Existing file differs: {target}; preserve it and use a new output directory')
+    materials.mkdir(parents=True)
+    for name, path in sources.items():
+        target = out/name
+        if not target.exists():
+            shutil.copyfile(path, target)
+        require(sha(target) == inputs[name]['sha256'] == sha(path), f'Changed publication input: {name}')
+    (materials/'README.md').write_text(index)
+    files = {name: sha(out/name) for name in sources}
+    files['Review_materials/README.md'] = sha(materials/'README.md')
+    dump(materials/'provenance.json', {'created': stamp(), 'inputs': inputs, 'files': files,
+         'verification': 'Source/copy integrity checked; scientific judgments require host review.'})
+    print(f'Published final review and working materials: {materials}/README.md; no model call')
 
 
 def main():
@@ -314,6 +470,9 @@ def main():
     p.add_argument('--journal', default='Not specified'); p.add_argument('--cutoff', required=True)
     p.add_argument('--language', default='English')
     p.add_argument('--template', type=Path, help='User/journal output template as UTF-8 text; otherwise use the bundled template')
+    p.add_argument('--template-original', type=Path, help='Preserved original supplied template, including Word/PDF')
+    p.add_argument('--template-basis', help='Actual source/instruction establishing this format; required with --template')
+    p.add_argument('--recommendation', action='store_true', help='Require Recommendation in the default final report')
     p = sub.add_parser('seal-literature'); p.add_argument('--run', type=Path, required=True)
     p.add_argument('--notes', type=Path, required=True); p.add_argument('--search-log', type=Path, required=True)
     p.add_argument('--preparation-note', required=True, help='Actual preparation/access history; do not assert unverified blindness')
@@ -322,12 +481,20 @@ def main():
     p = sub.add_parser('finalize', help='After host editing and source/template comparison, preserve the checked report')
     for name in ['draft', 'full-review', 'review', 'notes', 'template', 'out']:
         p.add_argument('--'+name, type=Path, required=True)
+    p.add_argument('--manifest', type=Path, required=True, help='Pre-writing manifest preserving the template, original and selection record')
+    p = sub.add_parser('publish', help='Gather useful existing materials beside the checked final review')
+    for name in ['run', 'delivery', 'out']:
+        p.add_argument('--'+name, type=Path, required=True)
+    p.add_argument('--review-name', default='peer-review.md', help='Working-directory Markdown filename')
+    p.add_argument('--word-review', type=Path, help='Optional existing host-checked Word report to copy/link without editing')
+    p.add_argument('--literature-corrections', type=Path, help='Optional recorded host corrections to show beside the frozen notes')
     args = parser.parse_args()
     if hasattr(args, 'run'): args.run = args.run.resolve()
     if args.command == 'inspect': inspect(args.pdf)
     elif args.command == 'prepare': prepare(args)
     elif args.command == 'seal-literature': seal(args)
     elif args.command == 'finalize': finalize(args)
+    elif args.command == 'publish': publish(args)
     else:
         require(args.cli, 'Codex CLI not found; pass --cli with its absolute path')
         run(args)

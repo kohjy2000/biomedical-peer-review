@@ -24,6 +24,8 @@ The range is not a hard cap and there is no fixed number of comments. If indepen
 
 ## Check the actual final text
 
+Compare the final report with the original template fixed before writing. Do not change the verification criteria to fit the generated output. Record template compliance separately from successful saving and hash checks; those checks do not establish that the agreed format was followed.
+
 Compare the concise final text with full-review.md, the accepted assessment and useful initial-review reasons/actions. Record the draft/full/final word counts and where consequential issues were retained, merged, corrected or removed; reasons for substantive removal belong in editing-notes.md. Check that the study's contribution, central uncertainty and highest-value author actions remain explicit; each major comment explains its scientific consequence and remedy; no action is both required and optional; alternatives answer the same question; and the recommendation follows from the surviving issues and feasible remedies.
 
 Recheck shortened factual statements, claim verbs, counts, quotations and absence assertions against the supplied source, including figures when relevant. If editing reveals an invalid alternative or would change a scientific judgment, resolve it against that evidence. Preserve the raw material_changes field and record any subsequent consequential judgment changes with source reasons in editing-notes.md; do not turn internal process records into the author-facing review.
